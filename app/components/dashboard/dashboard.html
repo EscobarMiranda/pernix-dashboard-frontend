@@ -1,0 +1,30 @@
+<div>
+  <div class="dropdown pull-right">
+    <button class="btn btn-primary btn-outline btn-rounded dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      General
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><a href="#">Flatirons</a></li>
+      <li><a href="#">Budget</a></li>
+      <li><a href="#">Something else here</a></li>
+    </ul>
+  </div>
+  <h2>Dashboard <small>General</small></h2>
+  <div class="jumbotron">
+    <div class="container">
+      <c3chart bindto-id="gauge-plot1-chart" class="col col-md-4">
+        <chart-column column-id="Resolution Rate" column-values="90" column-color="green" column-type="gauge"/>
+        <chart-gauge min="0" max="100" units="Resolution Rate" width="39"/>
+      </c3chart>
+      <c3chart bindto-id="gauge-plot2-chart" class="col col-md-4">
+        <chart-column column-id="Costumer Satisfaction" column-values="70" column-color="yellow" column-type="gauge"/>
+        <chart-gauge min="0" max="100" units="Costumer Satisfaction" width="39"/>
+      </c3chart>
+      <c3chart bindto-id="gauge-plot3-chart" class="col col-md-4">
+        <chart-column column-id="Quality" column-values="30" column-color="red" column-type="gauge"/>
+        <chart-gauge min="0" max="100" units="Quality" width="39"/>
+      </c3chart>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+@blue: #428bca; 
+@loginComponentsWidth: 20em;
+@full: 100%;
+
+.loginForm {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  text-align: center;
+  width: @loginComponentsWidth;
+}
+
+.logo-container {
+  display: table;
+  height: 4em;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  margin-left: 3em;
+  width: auto;
+}
+
+.login-container {
+  height: @full;
+  margin: 0 auto;
+  overflow: hidden;
+  position:absolute;
+  width: @full;
+}
+
+.logo-login {
+  height: 13em;
+  width: auto;
+}
+
+.btn-authenticate {
+  background-color: @blue;
+  border-color: @blue;
+  border-radius: 0;
+  border-width: 2px;
+  color: white;
+  margin-top: 5%;
+  width: @loginComponentsWidth;
+  &:hover {
+    color:white !important;
+    font-weight: bolder;
+  }
+}
+
+.loginInput {
+  border-radius: 0;
+  width: @loginComponentsWidth !important;
+}
