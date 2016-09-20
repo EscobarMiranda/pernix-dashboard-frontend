@@ -8,7 +8,7 @@
   /* @ngInject */
   function LoginController($state, toastr) {
     var vm = this;
-    
+
     vm.authenticateUser = authenticateUser;
     activate();
 

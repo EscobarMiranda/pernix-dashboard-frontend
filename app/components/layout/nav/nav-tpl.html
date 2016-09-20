@@ -5,8 +5,12 @@
     <a ui-sref="login" class="btn btn-white btn-outline btn-rounded">Logout</a>
   </div>
   <ul class="nav nav-sidebar">
-    <li class="active"><a ui-sref="home.dashboard"><hr><img src="app/images/gauge-icon-white.png"><br>Dashboard<span class="sr-only">(current)</span></a></li>
-    <li><a ui-sref="home.admin"><hr><img src="app/images/admin-icon-white.png"><br>Admin</a></li>
+    <li ng-class="{ active: vm.isActive('home.dashboard')}">
+      <a ui-sref="home.dashboard"><img src="app/images/gauge-icon-white.png"><br>Dashboard</a>
+    </li>
+    <li ng-class="{ active: !vm.isActive('home.dashboard')}">
+      <a ui-sref="home.user"><img src="app/images/admin-icon-white.png"><br>Admin</a>
+    </li>
   </ul>
   <div>
   	<p class="text-bottom">© Pernix-Solutions</p>
