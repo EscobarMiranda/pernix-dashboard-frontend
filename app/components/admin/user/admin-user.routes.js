@@ -8,10 +8,10 @@
   /* @ngInject */
   function routesConfiguration($stateProvider) {
     $stateProvider
-      .state('home.admin', {
-        url: '/admin',
-        templateUrl: 'app/components/admin/admin.html',
-        controller: 'AdminController as vm'
+      .state('home.user', {
+        url: '/admin/user',
+        templateUrl: 'app/components/admin/user/admin-user.html',
+        controller: 'AdminUserController as vm'
       });
   }
 })();

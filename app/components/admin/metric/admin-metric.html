@@ -1,0 +1,51 @@
+<div>
+  <ul class="nav nav-pills pull-right">
+    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.user">Users</a></li>
+    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.manager">Managers</a></li>
+    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.company">Companies</a></li>
+    <li role="presentation" class="active"><a class="btn-rounded" ui-sref="home.metric">Metrics</a></li>
+  </ul>
+  <h2>Metrics <small>Administration</small></h2><button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createMetric()">Create metric</button>
+  <div class="jumbotron">
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Resolution rate</td>
+            <td>Resolution rate description</td>
+            <td>
+              <a ng-click="vm.updateMetric()"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-click="vm.deleteMetric()"><span class='glyphicon glyphicon-trash'></span> Delete</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Costumer satisfaction</td>
+            <td>Costumer satisfaction description</td>
+            <td>
+              <a ng-click="vm.updateMetric()"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-click="vm.deleteMetric()"><span class='glyphicon glyphicon-trash'></span> Delete</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Quality</td>
+            <td>Quality description</td>
+            <td>
+              <a ng-click="vm.updateMetric()"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-click="vm.deleteMetric()"><span class='glyphicon glyphicon-trash'></span> Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

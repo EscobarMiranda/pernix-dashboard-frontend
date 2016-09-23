@@ -1,52 +1,70 @@
 @blue: #428bca; 
 @loginComponentsWidth: 20em;
 @full: 100%;
+@brand-primary: #428bca;
 
-.loginForm {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5%;
+.login-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background: @brand-primary;
   text-align: center;
-  width: @loginComponentsWidth;
-}
-
-.logo-container {
-  display: table;
-  height: 4em;
-  margin-bottom: 2em;
-  margin-top: 2em;
-  margin-left: 3em;
-  width: auto;
-}
-
-.login-container {
-  height: @full;
-  margin: 0 auto;
-  overflow: hidden;
-  position:absolute;
-  width: @full;
-}
-
-.logo-login {
-  height: 13em;
-  width: auto;
-}
-
-.btn-authenticate {
-  background-color: @blue;
-  border-color: @blue;
-  border-radius: 0;
-  border-width: 2px;
-  color: white;
-  margin-top: 5%;
-  width: @loginComponentsWidth;
-  &:hover {
-    color:white !important;
-    font-weight: bolder;
+  color: #fff;
+  padding: 3em;
+  h1 {
+    font-weight: 300;
+    small {
+      color: rgba(255,255,255,0.7);
+    }
   }
+
+  .form-group {
+    padding: 8px 0;
+  }
+
+  .form-content {
+    padding: 40px 0;
+  }
+
+  .logo-login {
+    padding-top: 3em;
+    height: 16em;
+    width: auto;
+  }
+
+  .btn-outline {
+    background: 0 0;
+    box-shadow: 0 0 0 2px #fff inset;
+    color: #fff;
+  }
+
 }
 
-.loginInput {
-  border-radius: 0;
-  width: @loginComponentsWidth !important;
+.input-underline {
+  /* !important to override bootstrap styles */
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4) !important;
+  color: #FFF !important;
+  border-radius: 0 !important;
+
+  &::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  &::-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+  &::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  &:focus {
+    border-bottom: 2px solid rgba(255, 255, 255, 1) !important;
+    box-shadow: none !important;
+  }
+
 }

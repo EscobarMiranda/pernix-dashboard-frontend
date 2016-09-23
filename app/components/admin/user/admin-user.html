@@ -1,0 +1,55 @@
+<div>
+  <ul class="nav nav-pills pull-right">
+    <li role="presentation" class="active"><a class="btn-rounded" ui-sref="home.user">Users</a></li>
+    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.manager">Managers</a></li>
+    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.company">Companies</a></li>
+    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.metric">Metrics</a></li>
+  </ul>
+  <h2>Users <small>Administration</small></h2><button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createUser()">Create user</button>
+  <div class="jumbotron">
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>User type</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mark Otto</td>
+            <td>Admin</td>
+            <td>motto@pernix-solutions.com</td>
+            <td>
+              <a ng-click="vm.updateUser()"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-click="vm.deleteUser()"><span class='glyphicon glyphicon-trash'></span> Delete</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Jacob Thornton</td>
+            <td>User</td>
+            <td>jthornton@pernix-solutions.com</td>
+            <td>
+              <a ng-click="vm.updateUser()"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-click="vm.deleteUser()"><span class='glyphicon glyphicon-trash'></span> Delete</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Larry the Bird</td>
+            <td>User</td>
+            <td>lthebird@pernix-solutions.com</td>
+            <td>
+              <a ng-click="vm.updateUser()"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-click="vm.deleteUser()"><span class='glyphicon glyphicon-trash'></span> Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
