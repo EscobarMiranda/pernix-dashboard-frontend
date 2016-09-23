@@ -3,26 +3,25 @@
 
   angular
     .module('app.admin')
-    .controller('CreateCompanyController', CreateCompanyController);
+    .controller('UpdateCompanyController', UpdateCompanyController);
 
-  CreateCompanyController.$inject = [
+  UpdateCompanyController.$inject = [
     'CompanyService',
     '$uibModalInstance',
-    'ngNotify',
-    'companies'
+    'company',
+    'ngNotify'
     ];
 
   /* @ngInject */
-  function CreateCompanyController(
+  function UpdateCompanyController(
       CompanyService,
       $uibModalInstance,
-      ngNotify,
-      companies) {
+      company,
+      ngNotify) {
     var vm = this;
-    vm.company = {};
-    vm.companies = companies;
-    vm.createCompany = createCompany;
     vm.close = close;
+    vm.company = company;
+    vm.updateCompany = updateCompany;
 
     activate();
 
@@ -34,15 +33,14 @@
       $uibModalInstance.dismiss('cancel');
     }
 
-    function createCompany() {
-      CompanyService.createCompany(vm.company)
+    function updateCompany() {
+      CompanyService.updateCompany(vm.company)
         .then(function(data) {
-          vm.companies.push(vm.company);
           vm.company = {};
-          ngNotify.set('Company has been created successfully', 'success');
+          ngNotify.set('Company has been updated successfully', 'success');
         })
         .catch(function(error) {
-          vm.user = {};
+          vm.company = {};
           ngNotify.set('An error has been occurred, please try again', 'error');
         });
       close();

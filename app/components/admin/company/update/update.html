@@ -1,20 +1,22 @@
 <div class="modal-content">
   <div class="modal-header">
-    <button type="button" class="close" ng-click="vm.cancel()">&times;</button>
+    <button type="button" class="close" ng-click="vm.close()">&times;</button>
     <h4 class="modal-title">Edit company</h4>
   </div>
   <div class="modal-body">
-    <div class="modal-body form-horizontal">
-      <div class="form-group">
-        <label class="control-label col-sm-4">Name: </label>
-        <div class="col-sm-5">
-          <input type="text" class="form-control" placeholder="Name" name="name" required>
+    <form name="form">
+      <div class="modal-body form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-4">Name: </label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" ng-model="vm.company.name" placeholder="Name" name="name" required>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary">Edit company</button>
-      <button type="button" class="btn btn-default" ng-click="vm.cancel()">Close</button>
-    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-disabled="form.$error.required" ng-click="vm.updateCompany()">Edit company</button>
+        <button type="button" class="btn btn-default" ng-click="vm.close()">Close</button>
+      </div>
+    </form>
   </div>  
 </div>
