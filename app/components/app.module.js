@@ -10,6 +10,7 @@
       'app.home',
       'app.layout',
       'app.login',
+      'app.tracking',
       'gridshore.c3js.chart',
       'ngMessages'
     ]);
