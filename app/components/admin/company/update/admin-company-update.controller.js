@@ -40,7 +40,6 @@
           ngNotify.set('Company has been updated successfully', 'success');
         })
         .catch(function(error) {
-          vm.company = {};
           ngNotify.set('An error has been occurred, please try again', 'error');
         });
       close();

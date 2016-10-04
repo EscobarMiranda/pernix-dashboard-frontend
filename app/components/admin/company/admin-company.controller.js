@@ -28,7 +28,6 @@
           vm.companies = companiesData.data;
         })
         .catch(function(error) {
-          vm.user = {};
           ngNotify.set('Error loading companies', 'error');
         });
     }
