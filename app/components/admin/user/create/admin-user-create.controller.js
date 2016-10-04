@@ -63,6 +63,7 @@
     }
 
     function createUser() {
+      vm.user.active = true;
       vm.user.manager = JSON.parse(vm.manager);
       vm.user.userType = JSON.parse(vm.userType);
       UserService.createUser(vm.user)

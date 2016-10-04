@@ -35,6 +35,7 @@
     }
 
     function createCompany() {
+      vm.company.active = true;
       CompanyService.createCompany(vm.company)
         .then(function(data) {
           vm.companies.push(vm.company);

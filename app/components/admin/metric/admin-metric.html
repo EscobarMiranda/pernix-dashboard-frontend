@@ -17,31 +17,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Resolution rate</td>
-            <td>Resolution rate description</td>
+          <tr ng-repeat="metric in vm.metrics">
+            <td>{{metric.name}}</td>
+            <td>{{metric.description}}</td>
             <td>
-              <a ng-click="vm.updateMetric()"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              <a ng-click="vm.updateMetric(metric)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
               -
-              <a ng-click="vm.deleteMetric()"><span class='glyphicon glyphicon-trash'></span> Delete</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Costumer satisfaction</td>
-            <td>Costumer satisfaction description</td>
-            <td>
-              <a ng-click="vm.updateMetric()"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
-              -
-              <a ng-click="vm.deleteMetric()"><span class='glyphicon glyphicon-trash'></span> Delete</a>
-            </td>
-          </tr>
-          <tr>
-            <td>Quality</td>
-            <td>Quality description</td>
-            <td>
-              <a ng-click="vm.updateMetric()"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
-              -
-              <a ng-click="vm.deleteMetric()"><span class='glyphicon glyphicon-trash'></span> Delete</a>
+              <a ng-click="vm.deleteMetric(metric)"><span class='glyphicon glyphicon-trash'></span> Delete</a>
             </td>
           </tr>
         </tbody>

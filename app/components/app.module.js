@@ -15,7 +15,8 @@
       'app.service',
       'gridshore.c3js.chart',
       'ngMessages',
-      'ngNotify'
+      'ngNotify',
+      'ngLodash'
     ]);
 
 })();
