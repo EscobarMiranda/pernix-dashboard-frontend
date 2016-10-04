@@ -3,21 +3,21 @@
 
   angular
     .module('app.admin')
-    .controller('CreateUserController', CreateUserController);
+    .controller('UpdateUserController', UpdateUserController);
 
-  CreateUserController.$inject = [
+  UpdateUserController.$inject = [
     'ManagerService',
     'UserService',
-    'users',
+    'user',
     '$uibModalInstance',
     'ngNotify'
     ];
 
   /* @ngInject */
-  function CreateUserController(
+  function UpdateUserController(
     ManagerService,
     UserService,
-    users,
+    user,
     $uibModalInstance,
     ngNotify) {
     var vm = this;
@@ -25,9 +25,8 @@
     vm.manager = {};
     vm.userTypes = [];
     vm.userType = {};
-    vm.user = {};
-    vm.users = users;
-    vm.createUser = createUser;
+    vm.user = user;
+    vm.updateUser = updateUser;
     vm.close = close;
 
     activate();
@@ -62,14 +61,13 @@
         });
     }
 
-    function createUser() {
+    function updateUser() {
       vm.user.manager = JSON.parse(vm.manager);
       vm.user.userType = JSON.parse(vm.userType);
-      UserService.createUser(vm.user)
+      UserService.updateUser(vm.user)
         .then(function(data) {
-          vm.users.push(vm.user);
           vm.user = {};
-          ngNotify.set('User has been created successfully', 'success');
+          ngNotify.set('User has been updated successfully', 'success');
         })
         .catch(function(error) {
           vm.user = {};
