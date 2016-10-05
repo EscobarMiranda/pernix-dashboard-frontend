@@ -3,29 +3,29 @@
 
   angular
     .module('app.admin')
-    .controller('CreateManagerController', CreateManagerController);
+    .controller('UpdateManagerController', UpdateManagerController);
 
-  CreateManagerController.$inject = [
+  UpdateManagerController.$inject = [
     'ManagerService',
     'CompanyService',
-    'managers',
     '$uibModalInstance',
+    'manager',
     'ngNotify'
     ];
 
   /* @ngInject */
-  function CreateManagerController(
+  function UpdateManagerController(
     ManagerService,
     CompanyService,
-    managers,
     $uibModalInstance,
+    manager,
     ngNotify) {
     var vm = this;
-    vm.managers = managers;
-    vm.company = {};
+    vm.manager = manager;
+    vm.company = manager.company;
     vm.companies = [];
     vm.close = close;
-    vm.createManager = createManager;
+    vm.updateManager = updateManager;
 
     activate();
     getCompanies();
@@ -44,18 +44,16 @@
           vm.companies = companiesData.data;
         })
         .catch(function(error) {
-          vm.companies = [];
           ngNotify.set('Error loading companies', 'error');
         });
     }
 
-    function createManager() {
+    function updateManager() {
       vm.manager.company = JSON.parse(vm.company);
-      ManagerService.createManager(vm.manager)
+      ManagerService.updateManager(vm.manager)
         .then(function(data) {
-          vm.managers.push(vm.manager);
           vm.manager = {};
-          ngNotify.set('Manager has been created successfully', 'success');
+          ngNotify.set('Manager has been updated successfully', 'success');
         })
         .catch(function(error) {
           vm.manager = {};

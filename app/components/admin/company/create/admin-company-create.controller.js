@@ -42,7 +42,6 @@
           ngNotify.set('Company has been created successfully', 'success');
         })
         .catch(function(error) {
-          vm.user = {};
           ngNotify.set('An error has been occurred, please try again', 'error');
         });
       close();
