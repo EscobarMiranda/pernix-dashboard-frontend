@@ -15,7 +15,8 @@
       'gridshore.c3js.chart',
       'ngMessages',
       'ngNotify',
-      'ngLodash'
+      'ngLodash',
+      'google-signin'
     ]);
 
 })();

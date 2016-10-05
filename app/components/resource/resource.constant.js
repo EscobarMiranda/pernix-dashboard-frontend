@@ -18,7 +18,10 @@
         '#7CE308',
         '#00C803',
         '#0C8000'
-        ]
+        ],
+      'GOOGLE_CLIENT_ID':
+        '677278398565-ldsfl0j55hl0aihs280hitt2qtrvd6an.apps.googleusercontent.com'
+
     });
 
 })();
