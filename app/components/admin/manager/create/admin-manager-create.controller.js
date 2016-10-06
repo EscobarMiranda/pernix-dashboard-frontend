@@ -50,6 +50,7 @@
     }
 
     function createManager() {
+      vm.manager.active = true;
       vm.manager.company = JSON.parse(vm.company);
       ManagerService.createManager(vm.manager)
         .then(function(data) {
