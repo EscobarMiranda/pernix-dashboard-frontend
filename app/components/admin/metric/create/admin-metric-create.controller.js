@@ -14,10 +14,10 @@
 
   /* @ngInject */
   function CreateMetricController(
-    MetricService,
-    metrics,
-    $uibModalInstance,
-    ngNotify) {
+      MetricService,
+      metrics,
+      $uibModalInstance,
+      ngNotify) {
     var vm = this;
     vm.metric = {};
     vm.metrics = metrics;

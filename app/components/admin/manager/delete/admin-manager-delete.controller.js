@@ -15,11 +15,11 @@
 
   /* @ngInject */
   function DeleteManagerController(
-    ManagerService,
-    manager,
-    managers,
-    $uibModalInstance,
-    ngNotify) {
+      ManagerService,
+      manager,
+      managers,
+      $uibModalInstance,
+      ngNotify) {
     var vm = this;
     vm.manager = manager;
     vm.managers = managers;

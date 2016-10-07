@@ -15,11 +15,11 @@
 
   /* @ngInject */
   function DeleteUserController(
-    UserService,
-    user,
-    users,
-    $uibModalInstance,
-    ngNotify) {
+      UserService,
+      user,
+      users,
+      $uibModalInstance,
+      ngNotify) {
     var vm = this;
     vm.close = close;
     vm.user = user;

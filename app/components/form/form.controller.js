@@ -7,7 +7,7 @@
 
   FormController.$inject = [
     'UserService',
-    'CustomerSatisfationService',
+    'CustomerSatisfactionService',
     'MetricService',
     'ngNotify',
     'RESOURCE',
@@ -17,13 +17,13 @@
 
   /* @ngInject */
   function FormController(
-    UserService,
-    CustomerSatisfationService,
-    MetricService,
-    ngNotify,
-    RESOURCE,
-    $stateParams,
-    $state) {
+      UserService,
+      CustomerSatisfactionService,
+      MetricService,
+      ngNotify,
+      RESOURCE,
+      $stateParams,
+      $state) {
     var vm = this;
     vm.metrics = [];
     vm.answers = {};
@@ -61,8 +61,8 @@
     }
 
     function sendAnswers() {
-      CustomerSatisfationService.createCustomerSatisfactionList(
-        CustomerSatisfationService.buildAnswers(vm.user.id, vm.answers));
+      CustomerSatisfactionService.createCustomerSatisfactionList(
+        CustomerSatisfactionService.buildAnswers(vm.user.id, vm.answers));
       $state.go('thanks');
     }
 

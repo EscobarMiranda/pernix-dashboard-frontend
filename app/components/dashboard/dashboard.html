@@ -1,30 +1,26 @@
 <div>
   <div class="dropdown pull-right">
     <button class="btn btn-blue btn-outline btn-rounded dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      General
+      Companies
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><a href="#">Flatirons</a></li>
-      <li><a href="#">Budget</a></li>
-      <li><a href="#">Something else here</a></li>
+      <li ng-repeat="company in vm.companies"><a ng-click="vm.getMetric('company/',company)">{{company.name}}</a></li>
     </ul>
   </div>
-  <h2>General <small>Dashboard</small></h2>
+  <div class="dropdown pull-right">
+    <button class="btn btn-blue btn-outline btn-rounded dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Users
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li ng-repeat="user in vm.users"><a ng-click="vm.getMetric('user/',user)">{{user.name}} {{user.lastname}}</a></li>
+    </ul>
+  </div>
+  <h2>{{vm.object.name}} {{vm.object.lastname}} <small>Dashboard</small></h2>
   <div class="jumbotron">
     <div class="container">
-      <c3chart bindto-id="gauge-plot1-chart" class="col col-md-4">
-        <chart-column column-id="Resolution Rate" column-values="90" column-color="green" column-type="gauge"/>
-        <chart-gauge min="0" max="100" units="Resolution Rate" width="39"/>
-      </c3chart>
-      <c3chart bindto-id="gauge-plot2-chart" class="col col-md-4">
-        <chart-column column-id="Costumer Satisfaction" column-values="70" column-color="yellow" column-type="gauge"/>
-        <chart-gauge min="0" max="100" units="Costumer Satisfaction" width="39"/>
-      </c3chart>
-      <c3chart bindto-id="gauge-plot3-chart" class="col col-md-4">
-        <chart-column column-id="Quality" column-values="30" column-color="red" column-type="gauge"/>
-        <chart-gauge min="0" max="100" units="Quality" width="39"/>
-      </c3chart>
+      <customer-satisfaction></customer-satisfaction>
     </div>
   </div>
 </div>

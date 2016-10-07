@@ -15,11 +15,11 @@
 
   /* @ngInject */
   function DeleteMetricController(
-    MetricService,
-    metric,
-    metrics,
-    $uibModalInstance,
-    ngNotify) {
+      MetricService,
+      metric,
+      metrics,
+      $uibModalInstance,
+      ngNotify) {
     var vm = this;
     vm.metric = metric;
     vm.metrics = metrics;

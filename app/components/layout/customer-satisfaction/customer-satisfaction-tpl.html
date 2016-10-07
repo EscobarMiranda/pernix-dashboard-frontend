@@ -1,0 +1,4 @@
+<c3chart ng-repeat="csatMetric in vm.csatMetrics" bindto-id="gauge-plot{{csatMetric.id}}-chart" class="col col-md-4">
+  <chart-column column-id="{{csatMetric.name}}" column-values="{{csatMetric.value}}" column-color="{{csatMetric.color}}" column-type="gauge"/>
+  <chart-gauge min="0" max="100" units="{{csatMetric.name}}" width="39"/>
+</c3chart>
