@@ -8,7 +8,6 @@
   DeleteMetricController.$inject = [
     'MetricService',
     'metric',
-    'metrics',
     '$uibModalInstance',
     'ngNotify'
     ];
@@ -17,12 +16,10 @@
   function DeleteMetricController(
       MetricService,
       metric,
-      metrics,
       $uibModalInstance,
       ngNotify) {
     var vm = this;
     vm.metric = metric;
-    vm.metrics = metrics;
     vm.close = close;
     vm.deleteMetric = deleteMetric;
 
@@ -39,7 +36,7 @@
     function deleteMetric() {
       MetricService.deleteMetric(vm.metric)
         .then(function(data) {
-          vm.metrics.splice(vm.metrics.indexOf(vm.metric), 1);
+          vm.metric.active = !vm.metric.active;
           ngNotify.set('Metric has been deleted successfully', 'success');
         })
         .catch(function(error) {

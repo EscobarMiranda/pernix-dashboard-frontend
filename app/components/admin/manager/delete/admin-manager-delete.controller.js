@@ -8,7 +8,6 @@
   DeleteManagerController.$inject = [
     'ManagerService',
     'manager',
-    'managers',
     '$uibModalInstance',
     'ngNotify'
     ];
@@ -17,12 +16,10 @@
   function DeleteManagerController(
       ManagerService,
       manager,
-      managers,
       $uibModalInstance,
       ngNotify) {
     var vm = this;
     vm.manager = manager;
-    vm.managers = managers;
     vm.close = close;
     vm.deleteManager = deleteManager;
 
@@ -39,7 +36,7 @@
     function deleteManager() {
       ManagerService.deleteManager(vm.manager)
         .then(function(data) {
-          vm.managers.splice(vm.managers.indexOf(vm.manager), 1);
+          vm.manager.active = !vm.manager.active;
           ngNotify.set('Manager has been deleted successfully', 'success');
         })
         .catch(function(error) {

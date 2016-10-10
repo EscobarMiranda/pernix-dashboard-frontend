@@ -9,7 +9,6 @@
     'CompanyService',
     '$uibModalInstance',
     'company',
-    'companies',
     'ngNotify'
     ];
 
@@ -18,12 +17,10 @@
       CompanyService,
       $uibModalInstance,
       company,
-      companies,
       ngNotify) {
     var vm = this;
     vm.close = close;
     vm.company = company;
-    vm.companies = companies;
     vm.deleteCompany = deleteCompany;
 
     activate();
@@ -39,7 +36,7 @@
     function deleteCompany() {
       CompanyService.deleteCompany(vm.company)
         .then(function(data) {
-          vm.companies.splice(vm.companies.indexOf(vm.company), 1);
+          vm.company.active = !vm.company.active;
           ngNotify.set('Company has been deleted successfully', 'success');
         })
         .catch(function(error) {

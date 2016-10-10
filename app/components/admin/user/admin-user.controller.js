@@ -62,9 +62,6 @@
         resolve: {
           user: function() {
             return user;
-          },
-          users: function() {
-            return vm.users;
           }
         }
       });

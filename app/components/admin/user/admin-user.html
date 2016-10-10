@@ -14,6 +14,7 @@
             <th>Name</th>
             <th>User type</th>
             <th>Email</th>
+            <th>Active</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -22,10 +23,12 @@
             <td>{{user.name}} {{user.lastname}}</td>
             <td>{{user.userType.name}}</td>
             <td>{{user.email}}</td>
+            <td>{{user.active}}</td>
             <td>
               <a ng-click="vm.updateUser(user)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
               -
-              <a ng-click="vm.deleteUser(user)"><span class='glyphicon glyphicon-trash'></span> Delete</a>
+              <a ng-show="user.active" ng-click="vm.deleteUser(user)"><span class='glyphicon glyphicon-remove'></span> Deactivate</a>
+              <a ng-hide="user.active" ng-click="vm.deleteUser(user)"><span class='glyphicon glyphicon-ok'></span> Activate</a>
             </td>
           </tr>
         </tbody>

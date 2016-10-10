@@ -63,9 +63,6 @@
         resolve: {
           manager: function() {
             return manager;
-          },
-          managers: function() {
-            return vm.managers;
           }
         }
       });

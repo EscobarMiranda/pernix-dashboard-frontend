@@ -61,9 +61,6 @@
         templateUrl: 'app/components/admin/metric/delete/delete.html',
         controller: 'DeleteMetricController as vm',
         resolve: {
-          metrics: function() {
-            return vm.metrics;
-          },
           metric: function() {
             return metric;
           }
