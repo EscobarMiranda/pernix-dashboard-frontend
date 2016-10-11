@@ -15,11 +15,11 @@
 
   /* @ngInject */
   function UpdateManagerController(
-    ManagerService,
-    CompanyService,
-    $uibModalInstance,
-    manager,
-    ngNotify) {
+      ManagerService,
+      CompanyService,
+      $uibModalInstance,
+      manager,
+      ngNotify) {
     var vm = this;
     vm.manager = manager;
     vm.company = manager.company;

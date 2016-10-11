@@ -15,11 +15,11 @@
 
   /* @ngInject */
   function CreateUserController(
-    ManagerService,
-    UserService,
-    users,
-    $uibModalInstance,
-    ngNotify) {
+      ManagerService,
+      UserService,
+      users,
+      $uibModalInstance,
+      ngNotify) {
     var vm = this;
     vm.managers = [];
     vm.manager = {};

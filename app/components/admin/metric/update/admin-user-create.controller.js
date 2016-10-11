@@ -13,10 +13,10 @@
     ];
   /* @ngInject */
   function UpdateMetricController(
-    MetricService,
-    metric,
-    $uibModalInstance,
-    ngNotify) {
+      MetricService,
+      metric,
+      $uibModalInstance,
+      ngNotify) {
     var vm = this;
     vm.metric = metric
     vm.close = close;

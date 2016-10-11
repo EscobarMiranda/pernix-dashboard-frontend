@@ -3,14 +3,27 @@
 
   angular
     .module('app.service')
-    .service('CustomerSatisfationService', CustomerSatisfationService);
+    .service('CustomerSatisfactionService', CustomerSatisfactionService);
 
-  CustomerSatisfationService.$inject = ['$http', 'RESOURCE'];
+  CustomerSatisfactionService.$inject = ['$http', 'RESOURCE'];
 
   /* @ngInject */
-  function CustomerSatisfationService($http, RESOURCE) {
+  function CustomerSatisfactionService($http, RESOURCE) {
+    this.getMetric = getMetric;
     this.createCustomerSatisfactionList = createCustomerSatisfactionList;
     this.buildAnswers = buildAnswers;
+
+    function getMetric(path) {
+      var request = {
+        method: 'GET',
+        url: RESOURCE.API_URL + 'customerSatisfaction/' + path,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+
+      return $http(request);
+    }
 
     function createCustomerSatisfaction(customerSatisfaction) {
       var postRequest = {
