@@ -13,6 +13,7 @@
           <tr>
             <th>Name</th>
             <th>Description</th>
+            <th>Active</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -20,10 +21,12 @@
           <tr ng-repeat="metric in vm.metrics">
             <td>{{metric.name}}</td>
             <td>{{metric.description}}</td>
+            <td>{{metric.active}}</td>
             <td>
               <a ng-click="vm.updateMetric(metric)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
               -
-              <a ng-click="vm.deleteMetric(metric)"><span class='glyphicon glyphicon-trash'></span> Delete</a>
+              <a ng-show="metric.active" ng-click="vm.deleteMetric(metric)"><span class='glyphicon glyphicon-remove'></span> Deactivate</a>
+              <a ng-hide="metric.active" ng-click="vm.deleteMetric(metric)"><span class='glyphicon glyphicon-ok'></span> Activate</a>
             </td>
           </tr>
         </tbody>

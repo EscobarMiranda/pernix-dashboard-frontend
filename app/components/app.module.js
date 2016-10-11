@@ -10,7 +10,6 @@
       'app.home',
       'app.layout',
       'app.login',
-      'app.tracking',
       'app.resource',
       'app.service',
       'gridshore.c3js.chart',

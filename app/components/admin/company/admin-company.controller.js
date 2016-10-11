@@ -63,9 +63,6 @@
         resolve: {
           company: function() {
             return company;
-          },
-          companies: function() {
-            return vm.companies;
           }
         }
       });
