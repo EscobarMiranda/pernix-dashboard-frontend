@@ -11,7 +11,7 @@
     'user',
     '$uibModalInstance',
     'ngNotify'
-    ];
+  ];
 
   /* @ngInject */
   function UpdateUserController(

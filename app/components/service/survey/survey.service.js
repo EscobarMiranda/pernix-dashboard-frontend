@@ -3,23 +3,23 @@
 
   angular
     .module('app.service')
-    .service('MetricService', MetricService);
+    .service('SurveyService', SurveyService);
 
-  MetricService.$inject = ['$http', 'RESOURCE'];
+  SurveyService.$inject = ['$http', 'RESOURCE'];
 
   /* @ngInject */
-  function MetricService($http, RESOURCE) {
+  function SurveyService($http, RESOURCE) {
 
-    this.getMetricsBySurvey = getMetricsBySurvey;
-    this.getMetric = getMetric;
-    this.createMetric = createMetric;
-    this.updateMetric = updateMetric;
-    this.changeStateMetric = changeStateMetric;
+    this.getSurveys = getSurveys;
+    this.getSurvey = getSurvey;
+    this.createSurvey = createSurvey;
+    this.updateSurvey = updateSurvey;
+    this.changeStateSurvey = changeStateSurvey;
 
-    function getMetricsBySurvey(survey) {
+    function getSurveys() {
       var request = {
         method: 'GET',
-        url: RESOURCE.API_URL + 'metric/bySurvey/' + survey.id,
+        url: RESOURCE.API_URL + 'survey',
         headers: {
           'Content-Type': 'application/json'
         }
@@ -28,10 +28,10 @@
       return $http(request);
     }
 
-    function getMetric(metric) {
+    function getSurvey(survey) {
       var request = {
         method: 'GET',
-        url: RESOURCE.API_URL + 'metric/' + metric.id,
+        url: RESOURCE.API_URL + 'survey/' + survey.id,
         headers: {
           'Content-Type': 'application/json'
         }
@@ -40,40 +40,40 @@
       return $http(request);
     }
 
-    function createMetric(metric) {
+    function createSurvey(survey) {
       var postRequest = {
         method: 'POST',
-        url:  RESOURCE.API_URL + 'metric',
+        url:  RESOURCE.API_URL + 'survey',
         headers: {
           'Content-Type': 'application/json'
         },
-        data: metric
+        data: survey
       };
 
       return $http(postRequest);
     }
 
-    function updateMetric(metric) {
+    function updateSurvey(survey) {
       var postRequest = {
         method: 'PUT',
-        url:  RESOURCE.API_URL + 'metric',
+        url:  RESOURCE.API_URL + 'survey',
         headers: {
           'Content-Type': 'application/json'
         },
-        data: metric
+        data: survey
       };
 
       return $http(postRequest);
     }
 
-    function changeStateMetric(metric) {
+    function changeStateSurvey(survey) {
       var postRequest = {
         method: 'PUT',
-        url:  RESOURCE.API_URL + 'metric/changeState',
+        url:  RESOURCE.API_URL + 'survey/changeState',
         headers: {
           'Content-Type': 'application/json'
         },
-        data: metric
+        data: survey
       };
 
       return $http(postRequest);

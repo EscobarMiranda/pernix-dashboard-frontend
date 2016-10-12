@@ -14,7 +14,7 @@
     this.getCompany = getCompany;
     this.createCompany = createCompany;
     this.updateCompany = updateCompany;
-    this.deleteCompany = deleteCompany;
+    this.changeStateCompany = changeStateCompany;
 
     function getCompanies() {
       var request = {
@@ -66,13 +66,14 @@
       return $http(postRequest);
     }
 
-    function deleteCompany(company) {
+    function changeStateCompany(company) {
       var postRequest = {
-        method: 'DELETE',
-        url:  RESOURCE.API_URL + 'company/' + company.id,
+        method: 'PUT',
+        url:  RESOURCE.API_URL + 'company/changeState',
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        data: company
       };
 
       return $http(postRequest);

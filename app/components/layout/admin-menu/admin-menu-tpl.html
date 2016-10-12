@@ -1,0 +1,6 @@
+<ul class="nav nav-pills pull-right">
+  <li role="presentation" ng-class="{ active: vm.isActive('home.user') }"><a ng-class="{ 'btn-blue btn-outline': !vm.isActive('home.user') }" class="btn btn-rounded" ui-sref="home.user">Users</a></li>
+  <li role="presentation" ng-class="{ active: vm.isActive('home.manager') }"><a ng-class="{ 'btn-blue btn-outline': !vm.isActive('home.manager') }" class="btn btn-rounded" ui-sref="home.manager">Managers</a></li>
+  <li role="presentation" ng-class="{ active: vm.isActive('home.company') }"><a ng-class="{ 'btn-blue btn-outline': !vm.isActive('home.company') }" class="btn btn-rounded" ui-sref="home.company">Companies</a></li>
+  <li role="presentation" ng-class="{ active: vm.isActive('home.survey') }"><a ng-class="{ 'btn-blue btn-outline': !vm.isActive('home.survey') }" class="btn btn-rounded" ui-sref="home.survey">Surveys</a></li>
+</ul>

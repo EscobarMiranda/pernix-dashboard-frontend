@@ -10,7 +10,7 @@
 
     $stateProvider
       .state('form', {
-        url: '/form/:idUser',
+        url: '/form/:surveyId/:userId',
         templateUrl: 'app/components/form/form.html',
         controller: 'FormController as vm'
       })

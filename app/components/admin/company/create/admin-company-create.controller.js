@@ -10,7 +10,7 @@
     '$uibModalInstance',
     'ngNotify',
     'companies'
-    ];
+  ];
 
   /* @ngInject */
   function CreateCompanyController(

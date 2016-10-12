@@ -1,11 +1,8 @@
 <div>
-  <ul class="nav nav-pills pull-right">
-    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.user">Users</a></li>
-    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.manager">Managers</a></li>
-    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.company">Companies</a></li>
-    <li role="presentation" class="active"><a class="btn-rounded" ui-sref="home.metric">Metrics</a></li>
-  </ul>
-  <h2>Metrics <small>Administration</small></h2><button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createMetric()">Create metric</button>
+  <admin-menu></admin-menu>
+  <h2>{{vm.survey.name}} <small>Administration</small></h2>
+  <button class="btn btn-blue btn-outline btn-rounded" ui-sref="home.survey">Back to surveys</button>
+  <button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createMetric()">Create metric</button>
   <div class="jumbotron">
     <div class="container">
       <table class="table table-hover">

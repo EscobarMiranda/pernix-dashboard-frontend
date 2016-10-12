@@ -14,7 +14,7 @@
     this.getManager = getManager;
     this.createManager = createManager;
     this.updateManager = updateManager;
-    this.deleteManager = deleteManager;
+    this.changeStateManager = changeStateManager;
 
     function getManagers() {
       var request = {
@@ -66,13 +66,14 @@
       return $http(postRequest);
     }
 
-    function deleteManager(manager) {
+    function changeStateManager(manager) {
       var postRequest = {
-        method: 'DELETE',
-        url:  RESOURCE.API_URL + 'manager/' + manager.id,
+        method: 'PUT',
+        url:  RESOURCE.API_URL + 'manager/changeState',
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        data: manager
       };
 
       return $http(postRequest);

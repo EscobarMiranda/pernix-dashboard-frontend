@@ -10,7 +10,7 @@
     'user',
     '$uibModalInstance',
     'ngNotify'
-    ];
+  ];
 
   /* @ngInject */
   function DeleteUserController(
@@ -34,10 +34,10 @@
     }
 
     function deleteUser() {
-      UserService.deleteUser(vm.user)
+      UserService.changeStateUser(vm.user)
         .then(function(data) {
           vm.user.active = !vm.user.active;
-          ngNotify.set('User has been deleted successfully', 'success');
+          ngNotify.set('User has been updated successfully', 'success');
         })
         .catch(function(error) {
           ngNotify.set('An error has been occurred, please try again', 'error');

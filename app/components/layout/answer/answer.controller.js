@@ -4,25 +4,25 @@
   angular
     .module('app.layout')
     .controller(
-      'CustomerSatisfactionController',
-      CustomerSatisfactionController
+      'AnswerController',
+      AnswerController
       );
 
-  CustomerSatisfactionController.$inject = [
-    'CustomerSatisfactionService',
+  AnswerController.$inject = [
+    'AnswerService',
     'ngNotify',
     'RESOURCE',
     '$scope'
     ];
 
   /* @ngInject */
-  function CustomerSatisfactionController(
-      CustomerSatisfactionService,
+  function AnswerController(
+      AnswerService,
       ngNotify,
       RESOURCE,
       $scope) {
     var vm = this;
-    vm.csatMetrics = [];
+    vm.answers = [];
     vm.getMetric = getMetric;
 
     activate();
@@ -38,16 +38,16 @@
     }
 
     function getMetric(path) {
-      vm.csatMetrics = [];
-      CustomerSatisfactionService.getMetric(path)
-        .then(function(csatData) {
-          _.forEach(csatData.data, function(value, key) {
+      vm.answers = [];
+      AnswerService.getMetric(path)
+        .then(function(data) {
+          _.forEach(data.data, function(value, key) {
             var metric = {};
             metric.id = value.id;
             metric.name = value.name;
             metric.value = (value.value * 100) / 5;
             metric.color = getColor(metric.value);
-            vm.csatMetrics.push(metric);
+            vm.answers.push(metric);
           });
         })
         .catch(function(error) {

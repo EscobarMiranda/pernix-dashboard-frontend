@@ -5,25 +5,49 @@
     .module('app.admin')
     .controller('AdminMetricController', AdminMetricController);
 
-  AdminMetricController.$inject = ['MetricService', '$uibModal', 'ngNotify'];
+  AdminMetricController.$inject = [
+    'SurveyService',
+    'MetricService',
+    '$uibModal',
+    'ngNotify',
+    '$stateParams'
+    ];
 
   /* @ngInject */
-  function AdminMetricController(MetricService, $uibModal, ngNotify) {
+  function AdminMetricController(
+      SurveyService,
+      MetricService,
+      $uibModal,
+      ngNotify,
+      $stateParams) {
     var vm = this;
     vm.metrics = [];
     vm.createMetric = createMetric;
     vm.updateMetric = updateMetric;
     vm.deleteMetric = deleteMetric;
+    vm.survey = {};
+    vm.survey.id = $stateParams.surveyId;
 
     activate();
+    getSurvey();
     getMetrics();
 
     function activate() {
 
     }
 
+    function getSurvey() {
+      SurveyService.getSurvey(vm.survey)
+        .then(function(surveyData) {
+          vm.survey = surveyData.data;
+        })
+        .catch(function(error) {
+          ngNotify.set('Error loading survey information', 'error');
+        });
+    }
+
     function getMetrics() {
-      MetricService.getMetrics()
+      MetricService.getMetricsBySurvey(vm.survey)
         .then(function(metricsData) {
           vm.metrics = metricsData.data;
         })
@@ -34,11 +58,14 @@
 
     function createMetric() {
       $uibModal.open({
-        templateUrl: 'app/components/admin/metric/create/create.html',
+        templateUrl: 'app/components/admin/survey/metric/create/create.html',
         controller: 'CreateMetricController as vm',
         resolve: {
           metrics: function() {
             return vm.metrics;
+          },
+          survey: function() {
+            return vm.survey;
           }
         }
       });
@@ -46,11 +73,14 @@
 
     function updateMetric(metric) {
       $uibModal.open({
-        templateUrl: 'app/components/admin/metric/update/update.html',
+        templateUrl: 'app/components/admin/survey/metric/update/update.html',
         controller: 'UpdateMetricController as vm',
         resolve: {
           metric: function() {
             return metric;
+          },
+          survey: function() {
+            return vm.survey;
           }
         }
       });
@@ -58,11 +88,14 @@
 
     function deleteMetric(metric) {
       $uibModal.open({
-        templateUrl: 'app/components/admin/metric/delete/delete.html',
+        templateUrl: 'app/components/admin/survey/metric/delete/delete.html',
         controller: 'DeleteMetricController as vm',
         resolve: {
           metric: function() {
             return metric;
+          },
+          survey: function() {
+            return vm.survey;
           }
         }
       });

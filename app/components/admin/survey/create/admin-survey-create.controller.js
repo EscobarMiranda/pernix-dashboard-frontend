@@ -3,25 +3,26 @@
 
   angular
     .module('app.admin')
-    .controller('DeleteMetricController', DeleteMetricController);
+    .controller('CreateSurveyController', CreateSurveyController);
 
-  DeleteMetricController.$inject = [
-    'MetricService',
-    'metric',
+  CreateSurveyController.$inject = [
+    'SurveyService',
+    'surveys',
     '$uibModalInstance',
     'ngNotify'
-    ];
+  ];
 
   /* @ngInject */
-  function DeleteMetricController(
-      MetricService,
-      metric,
+  function CreateSurveyController(
+      SurveyService,
+      surveys,
       $uibModalInstance,
       ngNotify) {
     var vm = this;
-    vm.metric = metric;
+    vm.survey = {};
+    vm.surveys = surveys;
+    vm.createSurvey = createSurvey;
     vm.close = close;
-    vm.deleteMetric = deleteMetric;
 
     activate();
 
@@ -33,11 +34,12 @@
       $uibModalInstance.dismiss('cancel');
     }
 
-    function deleteMetric() {
-      MetricService.deleteMetric(vm.metric)
+    function createSurvey() {
+      vm.survey.active = true;
+      SurveyService.createSurvey(vm.survey)
         .then(function(data) {
-          vm.metric.active = !vm.metric.active;
-          ngNotify.set('Metric has been deleted successfully', 'success');
+          vm.surveys.push(vm.survey);
+          ngNotify.set('Survey has been created successfully', 'success');
         })
         .catch(function(error) {
           ngNotify.set('An error has been occurred, please try again', 'error');
