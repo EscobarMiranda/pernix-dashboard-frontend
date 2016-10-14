@@ -8,7 +8,7 @@
   UserService.$inject = ['$http', 'RESOURCE'];
 
   /* @ngInject */
-  function UserService($http, RESOURCE) {
+  function UserService($http, RESOURCE, $window) {
 
     this.getUserTypes = getUserTypes;
     this.getUsers = getUsers;
@@ -16,6 +16,9 @@
     this.createUser = createUser;
     this.updateUser = updateUser;
     this.deleteUser = deleteUser;
+    this.setCurrentUser = setCurrentUser;
+    this.getCurrentUser = getCurrentUser;
+    this.clearCurrentUser = clearCurrentUser;
 
     function getUserTypes() {
       var request = {
@@ -89,6 +92,18 @@
       };
 
       return $http(postRequest);
+    }
+
+    function setCurrentUser(user) {
+      sessionStorage.setItem("CurrentUser", JSON.stringify(user));
+    }
+
+    function getCurrentUser() {
+      return JSON.parse(sessionStorage.getItem("CurrentUser"));
+    }
+
+    function clearCurrentUser() {
+      setCurrentUser({});
     }
 
   }
