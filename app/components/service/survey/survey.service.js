@@ -5,8 +5,6 @@
     .module('app.service')
     .service('SurveyService', SurveyService);
 
-  SurveyService.$inject = ['$http', 'RESOURCE'];
-
   /* @ngInject */
   function SurveyService($http, RESOURCE) {
 

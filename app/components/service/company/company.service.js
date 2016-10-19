@@ -5,8 +5,6 @@
     .module('app.service')
     .service('CompanyService', CompanyService);
 
-  CompanyService.$inject = ['$http', 'RESOURCE'];
-
   /* @ngInject */
   function CompanyService($http, RESOURCE) {
 

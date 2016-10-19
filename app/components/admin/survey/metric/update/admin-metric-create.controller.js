@@ -5,14 +5,6 @@
     .module('app.admin')
     .controller('UpdateMetricController', UpdateMetricController);
 
-  UpdateMetricController.$inject = [
-    'MetricService',
-    'metric',
-    'survey',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
-
   /* @ngInject */
   function UpdateMetricController(
       MetricService,

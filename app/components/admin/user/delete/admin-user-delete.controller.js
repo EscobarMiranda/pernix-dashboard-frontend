@@ -5,13 +5,6 @@
     .module('app.admin')
     .controller('DeleteUserController', DeleteUserController);
 
-  DeleteUserController.$inject = [
-    'UserService',
-    'user',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
-
   /* @ngInject */
   function DeleteUserController(
       UserService,

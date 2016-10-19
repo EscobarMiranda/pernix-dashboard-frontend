@@ -5,13 +5,6 @@
     .module('app.admin')
     .controller('DeleteManagerController', DeleteManagerController);
 
-  DeleteManagerController.$inject = [
-    'ManagerService',
-    'manager',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
-
   /* @ngInject */
   function DeleteManagerController(
       ManagerService,

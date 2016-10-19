@@ -5,19 +5,8 @@
     .module('app.admin')
     .controller('UpdateCompanyController', UpdateCompanyController);
 
-  UpdateCompanyController.$inject = [
-    'CompanyService',
-    '$uibModalInstance',
-    'company',
-    'ngNotify'
-  ];
-
   /* @ngInject */
-  function UpdateCompanyController(
-      CompanyService,
-      $uibModalInstance,
-      company,
-      ngNotify) {
+  function UpdateCompanyController(CompanyService, $uibModalInstance, company, ngNotify) {
     var vm = this;
     vm.close = close;
     vm.company = company;

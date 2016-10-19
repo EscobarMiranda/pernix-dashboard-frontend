@@ -5,14 +5,6 @@
     .module('app.admin')
     .controller('CreateUserController', CreateUserController);
 
-  CreateUserController.$inject = [
-    'ManagerService',
-    'UserService',
-    'users',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
-
   /* @ngInject */
   function CreateUserController(
       ManagerService,
