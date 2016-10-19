@@ -1,10 +1,5 @@
 <div>
-  <ul class="nav nav-pills pull-right">
-    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.user">Users</a></li>
-    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.manager">Managers</a></li>
-    <li role="presentation" class="active"><a class="btn-rounded" ui-sref="home.company">Companies</a></li>
-    <li role="presentation"><a class="btn btn-blue btn-outline btn-rounded" ui-sref="home.metric">Metrics</a></li>
-  </ul>
+  <admin-menu></admin-menu>
   <h2>Companies <small>Administration</small></h2>
   <button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createCompany()">Create company</button>
   <div class="jumbotron">

@@ -15,10 +15,10 @@
     this.getUser = getUser;
     this.createUser = createUser;
     this.updateUser = updateUser;
-    this.deleteUser = deleteUser;
     this.setCurrentUser = setCurrentUser;
     this.getCurrentUser = getCurrentUser;
     this.clearCurrentUser = clearCurrentUser;
+    this.changeStateUser = changeStateUser;
 
     function getUserTypes() {
       var request = {
@@ -82,24 +82,25 @@
       return $http(postRequest);
     }
 
-    function deleteUser(user) {
+    function changeStateUser(user) {
       var postRequest = {
-        method: 'DELETE',
-        url:  RESOURCE.API_URL + 'user/' + user.id,
+        method: 'PUT',
+        url:  RESOURCE.API_URL + 'user/changeState',
         headers: {
           'Content-Type': 'application/json'
-        }
+        },
+        data: user
       };
 
       return $http(postRequest);
     }
 
     function setCurrentUser(user) {
-      sessionStorage.setItem("CurrentUser", JSON.stringify(user));
+      sessionStorage.setItem('CurrentUser', JSON.stringify(user));
     }
 
     function getCurrentUser() {
-      return JSON.parse(sessionStorage.getItem("CurrentUser"));
+      return JSON.parse(sessionStorage.getItem('CurrentUser'));
     }
 
     function clearCurrentUser() {

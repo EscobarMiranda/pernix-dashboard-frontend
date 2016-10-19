@@ -11,7 +11,7 @@
     '$uibModalInstance',
     'manager',
     'ngNotify'
-    ];
+  ];
 
   /* @ngInject */
   function UpdateManagerController(

@@ -23,16 +23,16 @@
           vm.loginObject.name = vm.user.ofa;
           vm.loginObject.lastname = vm.user.wea;
           vm.loginObject.email = vm.user.U3;
-        
-          LoginService.getUser(vm.loginObject)
-          .then(function(userData) {
+          LoginService.getUser(vm.loginObject).then(function(userData) {
             vm.user = userData.data;
             UserService.setCurrentUser(vm.user);
             $state.go('home.dashboard');
           })
           .catch(function(error) {
-            ngNotify.set("Your profile does't belong to domain of Pernix", 'error');
+            ngNotify.set('Error loading users', 'error');
           });
+        } else{
+          ngNotify.set("our profile doesn't belong to any domain of Pernix", 'error');
         }
       }), function(err) {
         ngNotify.set('Error loading users', 'error');

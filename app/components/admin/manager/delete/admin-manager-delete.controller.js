@@ -10,7 +10,7 @@
     'manager',
     '$uibModalInstance',
     'ngNotify'
-    ];
+  ];
 
   /* @ngInject */
   function DeleteManagerController(
@@ -34,10 +34,10 @@
     }
 
     function deleteManager() {
-      ManagerService.deleteManager(vm.manager)
+      ManagerService.changeStateManager(vm.manager)
         .then(function(data) {
           vm.manager.active = !vm.manager.active;
-          ngNotify.set('Manager has been deleted successfully', 'success');
+          ngNotify.set('Manager has been updated successfully', 'success');
         })
         .catch(function(error) {
           ngNotify.set('An error has been occurred, please try again', 'error');

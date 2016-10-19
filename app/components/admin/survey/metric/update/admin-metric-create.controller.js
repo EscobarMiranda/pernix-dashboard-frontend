@@ -3,25 +3,28 @@
 
   angular
     .module('app.admin')
-    .controller('UpdateCompanyController', UpdateCompanyController);
+    .controller('UpdateMetricController', UpdateMetricController);
 
-  UpdateCompanyController.$inject = [
-    'CompanyService',
+  UpdateMetricController.$inject = [
+    'MetricService',
+    'metric',
+    'survey',
     '$uibModalInstance',
-    'company',
     'ngNotify'
   ];
 
   /* @ngInject */
-  function UpdateCompanyController(
-      CompanyService,
+  function UpdateMetricController(
+      MetricService,
+      metric,
+      survey,
       $uibModalInstance,
-      company,
       ngNotify) {
     var vm = this;
+    vm.metric = metric
+    vm.survey = survey;
     vm.close = close;
-    vm.company = company;
-    vm.updateCompany = updateCompany;
+    vm.updateMetric = updateMetric;
 
     activate();
 
@@ -33,13 +36,14 @@
       $uibModalInstance.dismiss('cancel');
     }
 
-    function updateCompany() {
-      CompanyService.updateCompany(vm.company)
+    function updateMetric() {
+      vm.metric.survey = vm.survey;
+      MetricService.updateMetric(vm.metric)
         .then(function(data) {
-          vm.company = {};
-          ngNotify.set('Company has been updated successfully', 'success');
+          ngNotify.set('Metric has been updated successfully', 'success');
         })
         .catch(function(error) {
+          vm.metric = {};
           ngNotify.set('An error has been occurred, please try again', 'error');
         });
       close();

@@ -1,0 +1,22 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="vm.close()">&times;</button>
+    <h4 class="modal-title">Create survey</h4>
+  </div>
+  <div class="modal-body">
+    <form name="form">
+      <div class="modal-body form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-4">Name: </label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" ng-model="vm.survey.name" placeholder="Name" name="name" required>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary" ng-disabled="form.$error.required" ng-click="vm.createSurvey()">Create survey</button>
+        <button type="button" class="btn btn-default" ng-click="vm.close()">Close</button>
+      </div>
+    </form>
+  </div>  
+</div>

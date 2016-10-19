@@ -3,20 +3,20 @@
 
   angular
     .module('app.service')
-    .service('CustomerSatisfactionService', CustomerSatisfactionService);
+    .service('AnswerService', AnswerService);
 
-  CustomerSatisfactionService.$inject = ['$http', 'RESOURCE'];
+  AnswerService.$inject = ['$http', 'RESOURCE'];
 
   /* @ngInject */
-  function CustomerSatisfactionService($http, RESOURCE) {
+  function AnswerService($http, RESOURCE) {
     this.getMetric = getMetric;
-    this.createCustomerSatisfactionList = createCustomerSatisfactionList;
+    this.createAnswerList = createAnswerList;
     this.buildAnswers = buildAnswers;
 
     function getMetric(path) {
       var request = {
         method: 'GET',
-        url: RESOURCE.API_URL + 'customerSatisfaction/' + path,
+        url: RESOURCE.API_URL + 'answer/' + path,
         headers: {
           'Content-Type': 'application/json'
         }
@@ -25,22 +25,22 @@
       return $http(request);
     }
 
-    function createCustomerSatisfaction(customerSatisfaction) {
+    function createAnswer(answer) {
       var postRequest = {
         method: 'POST',
-        url:  RESOURCE.API_URL + 'customerSatisfaction',
+        url:  RESOURCE.API_URL + 'answer',
         headers: {
           'Content-Type': 'application/json'
         },
-        data: customerSatisfaction
+        data: answer
       };
 
       return $http(postRequest);
     }
 
-    function createCustomerSatisfactionList(customerSatisfactionList) {
-      _.forEach(customerSatisfactionList, function(value, key) {
-        createCustomerSatisfaction(value);
+    function createAnswerList(answerList) {
+      _.forEach(answerList, function(value, key) {
+        createAnswer(value);
       });
     }
 

@@ -1,0 +1,31 @@
+<div>
+  <admin-menu></admin-menu>
+  <h2>Surveys <small>Administration</small></h2><button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createSurvey()">Create survey</button>
+  <div class="jumbotron">
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Active</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="survey in vm.surveys">
+            <td>{{survey.name}}</td>
+            <td>{{survey.active}}</td>
+            <td>
+              <a ng-click="vm.goToQuestions(survey)"><span class='glyphicon glyphicon-info-sign'></span> Go to metrics</a>
+              -
+              <a ng-click="vm.updateSurvey(survey)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-show="survey.active" ng-click="vm.deleteSurvey(survey)"><span class='glyphicon glyphicon-remove'></span> Deactivate</a>
+              <a ng-hide="survey.active" ng-click="vm.deleteSurvey(survey)"><span class='glyphicon glyphicon-ok'></span> Activate</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

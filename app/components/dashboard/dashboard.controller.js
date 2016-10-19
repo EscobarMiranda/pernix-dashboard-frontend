@@ -8,14 +8,16 @@
   DashboardController.$inject = [
     'CompanyService',
     'UserService',
-    '$scope'
-    ];
+    '$scope',
+    'ngNotify'
+  ];
 
   /* @ngInject */
   function DashboardController(
       CompanyService,
       UserService,
-      $scope) {
+      $scope,
+      ngNotify) {
     var vm = this;
     vm.object = {};
     vm.object.name = 'General';

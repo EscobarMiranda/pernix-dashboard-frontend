@@ -10,7 +10,7 @@
     '$uibModalInstance',
     'company',
     'ngNotify'
-    ];
+  ];
 
   /* @ngInject */
   function DeleteCompanyController(
@@ -34,10 +34,10 @@
     }
 
     function deleteCompany() {
-      CompanyService.deleteCompany(vm.company)
+      CompanyService.changeStateCompany(vm.company)
         .then(function(data) {
           vm.company.active = !vm.company.active;
-          ngNotify.set('Company has been deleted successfully', 'success');
+          ngNotify.set('Company has been updated successfully', 'success');
         })
         .catch(function(error) {
           ngNotify.set('An error has been occurred, please try again', 'error');

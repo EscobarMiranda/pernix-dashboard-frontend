@@ -6,8 +6,9 @@
     .controller('FormController', FormController);
 
   FormController.$inject = [
+    'SurveyService',
     'UserService',
-    'CustomerSatisfactionService',
+    'AnswerService',
     'MetricService',
     'ngNotify',
     'RESOURCE',
@@ -17,8 +18,9 @@
 
   /* @ngInject */
   function FormController(
+      SurveyService,
       UserService,
-      CustomerSatisfactionService,
+      AnswerService,
       MetricService,
       ngNotify,
       RESOURCE,
@@ -28,16 +30,29 @@
     vm.metrics = [];
     vm.answers = {};
     vm.user = {};
-    vm.user.id = $stateParams.idUser;
+    vm.survey = {};
+    vm.survey.id = $stateParams.surveyId;
+    vm.user.id = $stateParams.userId;
     vm.sendAnswers = sendAnswers;
     vm.scale = RESOURCE.SCALE;
 
     activate();
     getUser();
-    getMetrics();
+    getMetricsBySurvey();
+    getSurvey();
 
     function activate() {
 
+    }
+
+    function getSurvey() {
+      SurveyService.getSurvey(vm.survey)
+        .then(function(surveyData) {
+          vm.survey = surveyData.data;
+        })
+        .catch(function(error) {
+          ngNotify.set('Error loading survey', 'error');
+        });
     }
 
     function getUser() {
@@ -50,8 +65,8 @@
         });
     }
 
-    function getMetrics() {
-      MetricService.getMetrics()
+    function getMetricsBySurvey() {
+      MetricService.getMetricsBySurvey(vm.survey)
         .then(function(metricsData) {
           vm.metrics = metricsData.data;
         })
@@ -61,8 +76,8 @@
     }
 
     function sendAnswers() {
-      CustomerSatisfactionService.createCustomerSatisfactionList(
-        CustomerSatisfactionService.buildAnswers(vm.user.id, vm.answers));
+      AnswerService.createAnswerList(
+        AnswerService.buildAnswers(vm.user.id, vm.answers));
       $state.go('thanks');
     }
 

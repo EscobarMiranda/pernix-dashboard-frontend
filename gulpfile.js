@@ -60,7 +60,6 @@ gulp.task('move-bower-components', function() {
     './bower_components/angular/angular.js',
     './bower_components/angular-ui-router/release/angular-ui-router.js',
     './bower_components/firebase/firebase.js',
-    'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
     './bower_components/angularfire/dist/angularfire.min.js',
     './bower_components/angular-messages/angular-messages.min.js'])
     .pipe(gulp.dest('dist/vendor/js'));

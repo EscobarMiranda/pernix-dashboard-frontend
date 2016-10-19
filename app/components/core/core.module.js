@@ -4,7 +4,6 @@
   angular
     .module('app.core', [
       'ui.router',
-      'toastr',
       'ngMessages'
     ]);
 
