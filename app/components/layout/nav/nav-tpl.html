@@ -8,8 +8,8 @@
     <li ng-class="{ active: vm.isActive('home.dashboard')}">
       <a ui-sref="home.dashboard"><img src="app/images/gauge-icon-white.png"><br>Dashboard</a>
     </li>
-    <li ng-class="{ active: !vm.isActive('home.dashboard') }" ng-show="{{vm.visible}}">
-      <a ng-click="vm.adminFunctions()"><img src="app/images/admin-icon-white.png"><br>Admin</a>
+    <li ng-class="{ active: !vm.isActive('home.dashboard') }">
+      <a ui-sref="home.project"><img src="app/images/admin-icon-white.png"><br>Admin</a>
     </li>
   </ul>
   <div>

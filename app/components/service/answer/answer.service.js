@@ -4,7 +4,7 @@
   angular
     .module('app.service')
     .service('AnswerService', AnswerService);
-    
+
   /* @ngInject */
   function AnswerService($http, RESOURCE) {
     this.getMetric = getMetric;

@@ -16,7 +16,8 @@
       'ngMessages',
       'ngNotify',
       'ngLodash',
-      'google-signin'
+      'google-signin',
+      'ui.mask'
     ]);
 
 })();

@@ -1,4 +1,5 @@
-<ul class="nav nav-pills pull-right">
+<ul class="nav nav-pills pull-right" ng-show="{{vm.visible}}">
+  <li role="presentation" ng-class="{ active: vm.isActive('home.project') }"><a ng-class="{ 'btn-blue btn-outline': !vm.isActive('home.project') }" class="btn btn-rounded" ui-sref="home.project">Projects</a></li>
   <li role="presentation" ng-class="{ active: vm.isActive('home.user') }"><a ng-class="{ 'btn-blue btn-outline': !vm.isActive('home.user') }" class="btn btn-rounded" ui-sref="home.user">Users</a></li>
   <li role="presentation" ng-class="{ active: vm.isActive('home.manager') }"><a ng-class="{ 'btn-blue btn-outline': !vm.isActive('home.manager') }" class="btn btn-rounded" ui-sref="home.manager">Managers</a></li>
   <li role="presentation" ng-class="{ active: vm.isActive('home.company') }"><a ng-class="{ 'btn-blue btn-outline': !vm.isActive('home.company') }" class="btn btn-rounded" ui-sref="home.company">Companies</a></li>

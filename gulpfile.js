@@ -61,7 +61,8 @@ gulp.task('move-bower-components', function() {
     './bower_components/angular-ui-router/release/angular-ui-router.js',
     './bower_components/firebase/firebase.js',
     './bower_components/angularfire/dist/angularfire.min.js',
-    './bower_components/angular-messages/angular-messages.min.js'])
+    './bower_components/angular-messages/angular-messages.min.js',
+    'bower_components/angular-ui-mask/dist/mask.js'])
     .pipe(gulp.dest('dist/vendor/js'));
 
   gulp.src('./bower_components/bootstrap/fonts/*.*')
@@ -108,7 +109,8 @@ gulp.task('build-index', function() {
     './app/components/**/*.module.js',
     './app/components/**/*.js',
     './app/assets/styles/*.css',
-    'bower_components/angular-toastr/dist/angular-toastr.css'], {read: false});
+    'bower_components/angular-toastr/dist/angular-toastr.css',
+    'bower_components/angular-ui-mask/dist/mask.js'], {read: false});
 
   return target.pipe(inject(sources, {relative: true}))
     .pipe(gulp.dest(''));
