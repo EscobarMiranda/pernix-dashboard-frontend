@@ -62,14 +62,23 @@ gulp.task('move-bower-components', function() {
     './bower_components/firebase/firebase.js',
     './bower_components/angularfire/dist/angularfire.min.js',
     './bower_components/angular-messages/angular-messages.min.js',
-    'bower_components/angular-ui-mask/dist/mask.js'])
+    'bower_components/angular-ui-mask/dist/mask.js',
+    'bower_components/d3/d3.min.js',
+    'bower_components/c3/c3.min.js',
+    'bower_components/c3-angular/c3-angular.min.js',
+    'bower_components/ng-notify/src/scripts/ng-notify.js',
+    'bower_components/ng-lodash/build/ng-lodash.min.js',
+    'bower_components/ng-google-signin/dist/ng-google-signin.js',
+    'bower_components/angular-base64/angular-base64.min.js'])
     .pipe(gulp.dest('dist/vendor/js'));
 
   gulp.src('./bower_components/bootstrap/fonts/*.*')
     .pipe(gulp.dest('dist/vendor/fonts'));
 
   return gulp.src(['./bower_components/bootstrap/dist/css/bootstrap.min.css',
-    './bower_components/bootstrap/dist/css/bootstrap-theme.min.css'])
+    './bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
+    'bower_components/c3/c3.min.css',
+    'bower_components/ng-notify/src/styles/ng-notify.css'])
     .pipe(gulp.dest('dist/vendor/css'));
 });
 
@@ -110,7 +119,16 @@ gulp.task('build-index', function() {
     './app/components/**/*.js',
     './app/assets/styles/*.css',
     'bower_components/angular-toastr/dist/angular-toastr.css',
-    'bower_components/angular-ui-mask/dist/mask.js'], {read: false});
+    'bower_components/angular-ui-mask/dist/mask.js',
+    'bower_components/c3/c3.min.css',
+    'bower_components/d3/d3.min.js',
+    'bower_components/c3/c3.min.js',
+    'bower_components/c3-angular/c3-angular.min.js',
+    'bower_components/ng-notify/src/styles/ng-notify.css',
+    'bower_components/ng-notify/src/scripts/ng-notify.js',
+    'bower_components/ng-lodash/build/ng-lodash.min.js',
+    'bower_components/ng-google-signin/dist/ng-google-signin.js',
+    'bower_components/angular-base64/angular-base64.min.js'], {read: false});
 
   return target.pipe(inject(sources, {relative: true}))
     .pipe(gulp.dest(''));

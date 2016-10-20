@@ -7,17 +7,17 @@
       'API_URL': 'http://localhost:9090/rest/',
       'SCALE' : [1,2,3,4,5],
       'PALETTE' : [
-        '#FF0000',
-        '#FF0000',
-        '#FF0000',
-        '#FF0000',
-        '#FF0000',
-        '#FF0000',
-        '#FF0000',
-        '#7CE308',
-        '#7CE308',
-        '#00C803',
-        '#0C8000'
+        'RED',
+        'RED',
+        'RED',
+        'RED',
+        'RED',
+        'RED',
+        'YELLOW',
+        'YELLOW',
+        'GREEN',
+        'GREEN',
+        'GREEN'
         ],
       'GOOGLE_CLIENT_ID':
         '677278398565-ldsfl0j55hl0aihs280hitt2qtrvd6an.apps.googleusercontent.com',

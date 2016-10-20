@@ -29,8 +29,7 @@
         method: 'POST',
         url:  RESOURCE.API_URL + 'answer',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': UserService.getAuthorization()
+          'Content-Type': 'application/json'
         },
         data: answer
       };
