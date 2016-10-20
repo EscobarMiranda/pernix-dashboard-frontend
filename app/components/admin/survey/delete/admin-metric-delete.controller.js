@@ -5,13 +5,6 @@
     .module('app.admin')
     .controller('DeleteSurveyController', DeleteSurveyController);
 
-  DeleteSurveyController.$inject = [
-    'SurveyService',
-    'survey',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
-
   /* @ngInject */
   function DeleteSurveyController(
       SurveyService,

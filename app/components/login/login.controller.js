@@ -19,7 +19,7 @@
     function authenticateUser() {
       GoogleSignin.signIn().then(function(user) {
         vm.user = user.w3;
-        if(vm.user.U3.includes("@pernix-solutions")){
+        if (vm.user.U3.includes('@pernix-solutions')) {
           vm.loginObject.name = vm.user.ofa;
           vm.loginObject.lastname = vm.user.wea;
           vm.loginObject.email = vm.user.U3;
@@ -31,8 +31,8 @@
           .catch(function(error) {
             ngNotify.set('Error loading users', 'error');
           });
-        } else{
-          ngNotify.set("our profile doesn't belong to any domain of Pernix", 'error');
+        } else {
+          ngNotify.set('Your profile does not belong to any domain of Pernix', 'error');
         }
       }), function(err) {
         ngNotify.set('Error loading users', 'error');

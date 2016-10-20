@@ -5,8 +5,6 @@
     .module('app.service')
     .service('ManagerService', ManagerService);
 
-  ManagerService.$inject = ['$http', 'RESOURCE'];
-
   /* @ngInject */
   function ManagerService($http, RESOURCE) {
 

@@ -5,14 +5,6 @@
     .module('app.admin')
     .controller('AdminMetricController', AdminMetricController);
 
-  AdminMetricController.$inject = [
-    'SurveyService',
-    'MetricService',
-    '$uibModal',
-    'ngNotify',
-    '$stateParams'
-    ];
-
   /* @ngInject */
   function AdminMetricController(
       SurveyService,

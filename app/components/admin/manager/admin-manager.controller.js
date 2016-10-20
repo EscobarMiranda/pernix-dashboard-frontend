@@ -5,10 +5,8 @@
     .module('app.admin')
     .controller('AdminManagerController', AdminManagerController);
 
-  AdminManagerController.$inject = ['ManagerService', '$uibModal', 'ngNotify'];
-
   /* @ngInject */
-  function AdminManagerController(ManagerService, $uibModal, ngNotify) {
+  function AdminManagerController($state, UserService, ManagerService, $uibModal, ngNotify) {
     var vm = this;
     vm.managers = [];
     vm.createManager = createManager;
@@ -19,7 +17,10 @@
     getManagers();
 
     function activate() {
-
+      if (!UserService.getPermissions()) {
+        $state.go('home.dashboard');
+        ngNotify.set('Insufficient permissions', 'error');
+      }
     }
 
     function getManagers() {

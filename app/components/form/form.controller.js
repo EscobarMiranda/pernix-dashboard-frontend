@@ -5,27 +5,8 @@
     .module('app.login')
     .controller('FormController', FormController);
 
-  FormController.$inject = [
-    'SurveyService',
-    'UserService',
-    'AnswerService',
-    'MetricService',
-    'ngNotify',
-    'RESOURCE',
-    '$stateParams',
-    '$state'
-    ];
-
   /* @ngInject */
-  function FormController(
-      SurveyService,
-      UserService,
-      AnswerService,
-      MetricService,
-      ngNotify,
-      RESOURCE,
-      $stateParams,
-      $state) {
+  function FormController(SurveyService, UserService, AnswerService, MetricService, ngNotify, RESOURCE, $stateParams, $state) {
     var vm = this;
     vm.metrics = [];
     vm.answers = {};

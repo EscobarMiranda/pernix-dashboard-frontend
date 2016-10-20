@@ -5,8 +5,6 @@
     .module('app.service')
     .service('MetricService', MetricService);
 
-  MetricService.$inject = ['$http', 'RESOURCE'];
-
   /* @ngInject */
   function MetricService($http, RESOURCE) {
 

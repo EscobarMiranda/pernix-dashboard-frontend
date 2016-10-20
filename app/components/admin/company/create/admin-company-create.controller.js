@@ -5,19 +5,8 @@
     .module('app.admin')
     .controller('CreateCompanyController', CreateCompanyController);
 
-  CreateCompanyController.$inject = [
-    'CompanyService',
-    '$uibModalInstance',
-    'ngNotify',
-    'companies'
-  ];
-
   /* @ngInject */
-  function CreateCompanyController(
-      CompanyService,
-      $uibModalInstance,
-      ngNotify,
-      companies) {
+  function CreateCompanyController(CompanyService, $uibModalInstance, ngNotify, companies) {
     var vm = this;
     vm.company = {};
     vm.companies = companies;

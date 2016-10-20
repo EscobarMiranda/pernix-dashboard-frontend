@@ -5,12 +5,6 @@
     .module('app.admin')
     .controller('UpdateSurveyController', UpdateSurveyController);
 
-  UpdateSurveyController.$inject = [
-    'SurveyService',
-    'survey',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
   /* @ngInject */
   function UpdateSurveyController(
       SurveyService,

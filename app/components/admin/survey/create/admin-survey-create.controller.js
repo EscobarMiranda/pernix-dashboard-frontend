@@ -5,13 +5,6 @@
     .module('app.admin')
     .controller('CreateSurveyController', CreateSurveyController);
 
-  CreateSurveyController.$inject = [
-    'SurveyService',
-    'surveys',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
-
   /* @ngInject */
   function CreateSurveyController(
       SurveyService,

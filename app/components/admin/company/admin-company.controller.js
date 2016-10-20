@@ -5,10 +5,8 @@
     .module('app.admin')
     .controller('AdminCompanyController', AdminCompanyController);
 
-  AdminCompanyController.$inject = ['CompanyService', '$uibModal', 'ngNotify'];
-
   /* @ngInject */
-  function AdminCompanyController(CompanyService, $uibModal, ngNotify) {
+  function AdminCompanyController($state, UserService, CompanyService, $uibModal, ngNotify) {
     var vm = this;
     vm.companies = [];
     vm.createCompany = createCompany;
@@ -19,7 +17,10 @@
     getCompanies();
 
     function activate() {
-
+      if (!UserService.getPermissions()) {
+        $state.go('home.dashboard');
+        ngNotify.set('Insufficient permissions', 'error');
+      }
     }
 
     function getCompanies() {

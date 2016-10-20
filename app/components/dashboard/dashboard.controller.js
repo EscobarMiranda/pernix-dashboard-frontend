@@ -5,19 +5,8 @@
     .module('app.dashboard')
     .controller('DashboardController', DashboardController);
 
-  DashboardController.$inject = [
-    'CompanyService',
-    'UserService',
-    '$scope',
-    'ngNotify'
-  ];
-
   /* @ngInject */
-  function DashboardController(
-      CompanyService,
-      UserService,
-      $scope,
-      ngNotify) {
+  function DashboardController(CompanyService, UserService, $scope, ngNotify) {
     var vm = this;
     vm.object = {};
     vm.object.name = 'General';

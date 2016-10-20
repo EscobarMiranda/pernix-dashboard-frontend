@@ -8,19 +8,8 @@
       AnswerController
       );
 
-  AnswerController.$inject = [
-    'AnswerService',
-    'ngNotify',
-    'RESOURCE',
-    '$scope'
-    ];
-
   /* @ngInject */
-  function AnswerController(
-      AnswerService,
-      ngNotify,
-      RESOURCE,
-      $scope) {
+  function AnswerController(AnswerService, ngNotify, RESOURCE, $scope) {
     var vm = this;
     vm.answers = [];
     vm.getMetric = getMetric;

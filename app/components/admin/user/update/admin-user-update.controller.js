@@ -5,14 +5,6 @@
     .module('app.admin')
     .controller('UpdateUserController', UpdateUserController);
 
-  UpdateUserController.$inject = [
-    'ManagerService',
-    'UserService',
-    'user',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
-
   /* @ngInject */
   function UpdateUserController(
       ManagerService,

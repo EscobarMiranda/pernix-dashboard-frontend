@@ -5,14 +5,6 @@
     .module('app.admin')
     .controller('CreateMetricController', CreateMetricController);
 
-  CreateMetricController.$inject = [
-    'MetricService',
-    'survey',
-    'metrics',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
-
   /* @ngInject */
   function CreateMetricController(
       MetricService,

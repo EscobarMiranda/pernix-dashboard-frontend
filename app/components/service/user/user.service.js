@@ -5,11 +5,8 @@
     .module('app.service')
     .service('UserService', UserService);
 
-  UserService.$inject = ['$http', 'RESOURCE'];
-
   /* @ngInject */
   function UserService($http, RESOURCE, $window) {
-
     this.getUserTypes = getUserTypes;
     this.getUsers = getUsers;
     this.getUser = getUser;
@@ -19,6 +16,7 @@
     this.getCurrentUser = getCurrentUser;
     this.clearCurrentUser = clearCurrentUser;
     this.changeStateUser = changeStateUser;
+    this.getPermissions = getPermissions;
 
     function getUserTypes() {
       var request = {
@@ -105,6 +103,10 @@
 
     function clearCurrentUser() {
       setCurrentUser({});
+    }
+
+    function getPermissions() {
+      return getCurrentUser().userType.id == 2;
     }
 
   }

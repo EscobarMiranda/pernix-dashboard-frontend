@@ -5,19 +5,8 @@
     .module('app.admin')
     .controller('AdminSurveyController', AdminSurveyController);
 
-  AdminSurveyController.$inject = [
-    'SurveyService',
-    '$uibModal',
-    'ngNotify',
-    '$state'
-  ];
-
   /* @ngInject */
-  function AdminSurveyController(
-      SurveyService,
-      $uibModal,
-      ngNotify,
-      $state) {
+  function AdminSurveyController($state, UserService, SurveyService, $uibModal, ngNotify) {
     var vm = this;
     vm.surveys = [];
     vm.createSurvey = createSurvey;
@@ -29,7 +18,10 @@
     getSurveys();
 
     function activate() {
-
+      if (!UserService.getPermissions()) {
+        $state.go('home.dashboard');
+        ngNotify.set('Insufficient permissions', 'error');
+      }
     }
 
     function getSurveys() {

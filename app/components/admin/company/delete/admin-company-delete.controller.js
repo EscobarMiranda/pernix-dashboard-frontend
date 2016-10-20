@@ -5,19 +5,8 @@
     .module('app.admin')
     .controller('DeleteCompanyController', DeleteCompanyController);
 
-  DeleteCompanyController.$inject = [
-    'CompanyService',
-    '$uibModalInstance',
-    'company',
-    'ngNotify'
-  ];
-
   /* @ngInject */
-  function DeleteCompanyController(
-      CompanyService,
-      $uibModalInstance,
-      company,
-      ngNotify) {
+  function DeleteCompanyController(CompanyService, $uibModalInstance, company, ngNotify) {
     var vm = this;
     vm.close = close;
     vm.company = company;

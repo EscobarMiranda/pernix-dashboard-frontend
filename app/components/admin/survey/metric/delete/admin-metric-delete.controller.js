@@ -5,14 +5,6 @@
     .module('app.admin')
     .controller('DeleteMetricController', DeleteMetricController);
 
-  DeleteMetricController.$inject = [
-    'MetricService',
-    'metric',
-    'survey',
-    '$uibModalInstance',
-    'ngNotify'
-  ];
-
   /* @ngInject */
   function DeleteMetricController(
       MetricService,

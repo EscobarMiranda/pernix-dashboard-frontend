@@ -5,11 +5,8 @@
     .module('app.service')
     .service('LoginService', LoginService);
 
-  LoginService.$inject = ['$http', 'RESOURCE'];
-
   /* @ngInject */
   function LoginService($http, RESOURCE) {
-
     this.getUser = getUser;
 
     function getUser(loginObject) {
