@@ -9,11 +9,9 @@
   function NavController($state, UserService, ngNotify) {
     var vm = this;
     vm.user = {};
-    vm.visible = UserService.getPermissions();
     vm.getUser = getUser;
     vm.isActive = isActive;
     vm.logout = logout;
-    vm.adminFunctions = adminFunctions;
     activate();
     getUser();
 
@@ -34,12 +32,5 @@
       $state.go('login');
     }
 
-    function adminFunctions() {
-      if (UserService.getPermissions()) {
-        $state.go('home.user');
-      } else {
-        ngNotify.set('Insufficient permissions', 'error');
-      }
-    }
   }
 })();

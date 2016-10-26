@@ -6,7 +6,14 @@
     .controller('FormController', FormController);
 
   /* @ngInject */
-  function FormController(SurveyService, UserService, AnswerService, MetricService, ngNotify, RESOURCE, $stateParams, $state) {
+  function FormController(SurveyService,
+                          UserService,
+                          AnswerService,
+                          MetricService,
+                          ngNotify,
+                          RESOURCE,
+                          $stateParams,
+                          $state) {
     var vm = this;
     vm.metrics = [];
     vm.answers = {};
@@ -17,14 +24,9 @@
     vm.sendAnswers = sendAnswers;
     vm.scale = RESOURCE.SCALE;
 
-    activate();
     getUser();
     getMetricsBySurvey();
     getSurvey();
-
-    function activate() {
-
-    }
 
     function getSurvey() {
       SurveyService.getSurvey(vm.survey)
