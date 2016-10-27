@@ -18,6 +18,7 @@
     getSurveys();
 
     function activate() {
+      UserService.islogged();
       if (!UserService.getPermissions()) {
         $state.go('home.dashboard');
         ngNotify.set('Insufficient permissions', 'error');

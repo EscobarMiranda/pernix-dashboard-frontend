@@ -6,8 +6,9 @@
     .service('UserService', UserService);
 
   /* @ngInject */
-  function UserService($http, RESOURCE, $window) {
+  function UserService($http, RESOURCE, $window, $state, ngNotify) {
     this.getUserTypes = getUserTypes;
+    this.getUserTypeByName = getUserTypeByName;
     this.getUsers = getUsers;
     this.getUser = getUser;
     this.createUser = createUser;
@@ -16,12 +17,27 @@
     this.getCurrentUser = getCurrentUser;
     this.clearCurrentUser = clearCurrentUser;
     this.changeStateUser = changeStateUser;
+    this.setCurrentAdminId = setCurrentAdminId;
+    this.getCurrentAdminId = getCurrentAdminId;
     this.getPermissions = getPermissions;
+    this.islogged = islogged;
 
     function getUserTypes() {
       var request = {
         method: 'GET',
         url: RESOURCE.API_URL + 'userType',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+
+      return $http(request);
+    }
+
+    function getUserTypeByName(name) {
+      var request = {
+        method: 'GET',
+        url: RESOURCE.API_URL + 'userType/byName/' + name,
         headers: {
           'Content-Type': 'application/json'
         }
@@ -102,11 +118,26 @@
     }
 
     function clearCurrentUser() {
-      setCurrentUser({});
+      setCurrentUser(null);
     }
 
-    function getPermissions() {
-      return getCurrentUser().userType.id == 2;
+    function setCurrentAdminId(userType) {
+      sessionStorage.setItem('CurrentAdminId', JSON.stringify(userType));
+    }
+
+    function getCurrentAdminId() {
+      return JSON.parse(sessionStorage.getItem('CurrentAdminId'));
+    }
+
+    function getPermissions(id) {
+      return getCurrentUser().userType.id == getCurrentAdminId().id;
+    }
+
+    function islogged() {
+      if (getCurrentUser() == null) {
+        ngNotify.set('session required', 'error');
+        $state.go('login');
+      }
     }
 
   }

@@ -14,6 +14,7 @@
     activate();
 
     function activate() {
+
     }
 
     function authenticateUser() {
