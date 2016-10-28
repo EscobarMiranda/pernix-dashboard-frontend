@@ -9,7 +9,7 @@
       );
 
   /* @ngInject */
-  function AnswerController(AnswerService, ngNotify, RESOURCE, $scope) {
+  function AnswerController(AnswerService, ngNotify, RESOURCE, $scope, UserService) {
     var vm = this;
     vm.answers = [];
     vm.getMetric = getMetric;
@@ -19,7 +19,7 @@
     $scope.$on('getMetric', function(event, path) { getMetric(path); });
 
     function activate() {
-
+      UserService.verifyCredentials();
     }
 
     function getColor(value) {

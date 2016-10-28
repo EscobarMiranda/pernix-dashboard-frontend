@@ -16,12 +16,6 @@
     vm.close = close;
     vm.updateSurvey = updateSurvey;
 
-    activate();
-
-    function activate() {
-
-    }
-
     function close() {
       $uibModalInstance.dismiss('cancel');
     }

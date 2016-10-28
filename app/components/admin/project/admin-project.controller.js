@@ -6,7 +6,7 @@
     .controller('AdminProjectController', AdminProjectController);
 
   /* @ngInject */
-  function AdminProjectController(UserService, ProjectService, $uibModal, ngNotify) {
+  function AdminProjectController($state, UserService, ProjectService, $uibModal, ngNotify) {
     var vm = this;
     vm.projects = [];
     vm.createProject = createProject;
@@ -18,6 +18,7 @@
     showProjects();
 
     function showProjects() {
+      UserService.verifyCredentials();
       if (vm.isAdmin) {
         getProjects();
       }

@@ -6,15 +6,15 @@
     .controller('AdminMenuController', AdminMenuController);
 
   /* @ngInject */
-  function AdminMenuController(UserService, $state) {
+  function AdminMenuController(UserService, $state, ngNotify) {
     var vm = this;
-    vm.isActive = isActive;
     vm.visible = UserService.getPermissions();
+    vm.isActive = isActive;
 
     activate();
 
     function activate() {
-
+      UserService.verifyCredentials();
     }
 
     function isActive(viewLocation) {

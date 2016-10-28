@@ -6,7 +6,7 @@
     .controller('DashboardController', DashboardController);
 
   /* @ngInject */
-  function DashboardController(CompanyService, UserService, $scope, ngNotify) {
+  function DashboardController(CompanyService, UserService, $scope, ngNotify, $state) {
     var vm = this;
     vm.object = {};
     vm.object.name = 'General';
@@ -19,7 +19,7 @@
     getUsers();
 
     function activate() {
-
+      UserService.verifyCredentials();
     }
 
     function getMetric(path, object) {

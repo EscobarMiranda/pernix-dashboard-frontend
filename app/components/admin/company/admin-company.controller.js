@@ -17,6 +17,7 @@
     getCompanies();
 
     function activate() {
+      UserService.verifyCredentials();
       if (!UserService.getPermissions()) {
         $state.go('home.dashboard');
         ngNotify.set('Insufficient permissions', 'error');

@@ -17,12 +17,6 @@
     vm.createSurvey = createSurvey;
     vm.close = close;
 
-    activate();
-
-    function activate() {
-
-    }
-
     function close() {
       $uibModalInstance.dismiss('cancel');
     }
