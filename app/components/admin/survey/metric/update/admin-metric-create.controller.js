@@ -18,12 +18,6 @@
     vm.close = close;
     vm.updateMetric = updateMetric;
 
-    activate();
-
-    function activate() {
-
-    }
-
     function close() {
       $uibModalInstance.dismiss('cancel');
     }

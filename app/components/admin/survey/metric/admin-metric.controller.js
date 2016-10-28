@@ -20,13 +20,8 @@
     vm.survey = {};
     vm.survey.id = $stateParams.surveyId;
 
-    activate();
     getSurvey();
     getMetrics();
-
-    function activate() {
-
-    }
 
     function getSurvey() {
       SurveyService.getSurvey(vm.survey)

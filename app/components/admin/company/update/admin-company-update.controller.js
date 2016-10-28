@@ -12,12 +12,6 @@
     vm.company = company;
     vm.updateCompany = updateCompany;
 
-    activate();
-
-    function activate() {
-
-    }
-
     function close() {
       $uibModalInstance.dismiss('cancel');
     }

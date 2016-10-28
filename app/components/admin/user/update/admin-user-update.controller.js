@@ -21,13 +21,8 @@
     vm.updateUser = updateUser;
     vm.close = close;
 
-    activate();
     getManagers();
     getUserTypes();
-
-    function activate() {
-
-    }
 
     function close() {
       $uibModalInstance.dismiss('cancel');

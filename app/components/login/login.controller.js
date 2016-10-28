@@ -11,11 +11,6 @@
     vm.user = {};
     vm.loginObject = {};
     vm.authenticateUser = authenticateUser;
-    activate();
-
-    function activate() {
-
-    }
 
     function authenticateUser() {
       GoogleSignin.signIn().then(function(user) {

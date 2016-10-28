@@ -16,12 +16,6 @@
     vm.close = close;
     vm.deleteManager = deleteManager;
 
-    activate();
-
-    function activate() {
-
-    }
-
     function close() {
       $uibModalInstance.dismiss('cancel');
     }

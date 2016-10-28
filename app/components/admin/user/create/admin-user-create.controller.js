@@ -22,13 +22,8 @@
     vm.createUser = createUser;
     vm.close = close;
 
-    activate();
     getManagers();
     getUserTypes();
-
-    function activate() {
-
-    }
 
     function close() {
       $uibModalInstance.dismiss('cancel');

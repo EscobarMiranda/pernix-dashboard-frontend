@@ -16,12 +16,6 @@
     vm.user = user;
     vm.deleteUser = deleteUser;
 
-    activate();
-
-    function activate() {
-
-    }
-
     function close() {
       $uibModalInstance.dismiss('cancel');
     }

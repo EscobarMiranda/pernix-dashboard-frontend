@@ -19,12 +19,7 @@
     vm.close = close;
     vm.createManager = createManager;
 
-    activate();
     getCompanies();
-
-    function activate() {
-
-    }
 
     function close() {
       $uibModalInstance.dismiss('cancel');
