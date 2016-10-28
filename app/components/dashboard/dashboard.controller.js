@@ -19,7 +19,7 @@
     getUsers();
 
     function activate() {
-      UserService.islogged();
+      UserService.verifyCredentials();
     }
 
     function getMetric(path, object) {

@@ -18,7 +18,7 @@
     showProjects();
 
     function showProjects() {
-      UserService.islogged();
+      UserService.verifyCredentials();
       if (vm.isAdmin) {
         getProjects();
       }

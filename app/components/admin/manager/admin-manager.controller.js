@@ -17,7 +17,7 @@
     getManagers();
 
     function activate() {
-      UserService.islogged();
+      UserService.verifyCredentials();
       if (!UserService.getPermissions()) {
         $state.go('home.dashboard');
         ngNotify.set('Insufficient permissions', 'error');

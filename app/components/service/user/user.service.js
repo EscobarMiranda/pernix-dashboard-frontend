@@ -20,7 +20,7 @@
     this.setCurrentAdminId = setCurrentAdminId;
     this.getCurrentAdminId = getCurrentAdminId;
     this.getPermissions = getPermissions;
-    this.islogged = islogged;
+    this.verifyCredentials = verifyCredentials;
 
     function getUserTypes() {
       var request = {
@@ -133,7 +133,7 @@
       return getCurrentUser().userType.id == getCurrentAdminId().id;
     }
 
-    function islogged() {
+    function verifyCredentials() {
       if (getCurrentUser() == null) {
         ngNotify.set('session required', 'error');
         $state.go('login');

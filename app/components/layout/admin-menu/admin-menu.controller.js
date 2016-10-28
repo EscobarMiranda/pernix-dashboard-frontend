@@ -14,7 +14,7 @@
     activate();
 
     function activate() {
-      UserService.islogged();
+      UserService.verifyCredentials();
     }
 
     function isActive(viewLocation) {

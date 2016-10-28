@@ -19,7 +19,7 @@
     $scope.$on('getMetric', function(event, path) { getMetric(path); });
 
     function activate() {
-      UserService.islogged();
+      UserService.verifyCredentials();
     }
 
     function getColor(value) {
