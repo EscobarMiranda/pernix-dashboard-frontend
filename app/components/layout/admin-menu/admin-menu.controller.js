@@ -10,7 +10,6 @@
     var vm = this;
     vm.visible = UserService.getPermissions();
     vm.isActive = isActive;
-
     activate();
 
     function activate() {

@@ -129,7 +129,7 @@
       return JSON.parse(sessionStorage.getItem('CurrentAdminId'));
     }
 
-    function getPermissions(id) {
+    function getPermissions() {
       return getCurrentUser().userType.id == getCurrentAdminId().id;
     }
 
