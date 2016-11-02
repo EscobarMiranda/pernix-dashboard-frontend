@@ -9,6 +9,7 @@
             <th>Name</th>
             <th>User type</th>
             <th>Email</th>
+            <th>Manager</th>
             <th>Active</th>
             <th>Actions</th>
           </tr>
@@ -18,6 +19,7 @@
             <td>{{user.name}} {{user.lastname}}</td>
             <td>{{user.userType.name}}</td>
             <td>{{user.email}}</td>
+            <td>{{user.manager.name}} {{user.manager.lastname}}</td>
             <td>{{user.active}}</td>
             <td>
               <a ng-click="vm.updateUser(user)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
