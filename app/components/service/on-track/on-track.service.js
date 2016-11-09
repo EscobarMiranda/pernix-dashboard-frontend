@@ -6,7 +6,7 @@
     .service('OnTrackService', OnTrackService);
 
   /* @ngInject */
-  function OnTrackService($http, RESOURCE) {
+  function OnTrackService(UserService, $http, RESOURCE, $base64) {
     this.getOnTrack = getOnTrack;
 
     function getOnTrack() {
@@ -14,7 +14,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'onTrack',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         }
       };
 

@@ -6,7 +6,7 @@
     .service('MetricService', MetricService);
 
   /* @ngInject */
-  function MetricService($http, RESOURCE) {
+  function MetricService(UserService, $http, RESOURCE, $base64) {
 
     this.getMetricsBySurvey = getMetricsBySurvey;
     this.getMetric = getMetric;
@@ -19,7 +19,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'metric/bySurvey/' + survey.id,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         }
       };
 
@@ -31,7 +32,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'metric/' + metric.id,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         }
       };
 
@@ -43,7 +45,8 @@
         method: 'POST',
         url:  RESOURCE.API_URL + 'metric',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: metric
       };
@@ -56,7 +59,8 @@
         method: 'PUT',
         url:  RESOURCE.API_URL + 'metric',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: metric
       };
@@ -69,7 +73,8 @@
         method: 'PUT',
         url:  RESOURCE.API_URL + 'metric/changeState',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: metric
       };

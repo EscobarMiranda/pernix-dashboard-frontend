@@ -11,13 +11,7 @@
       'app.layout',
       'app.login',
       'app.resource',
-      'app.service',
-      'gridshore.c3js.chart',
-      'ngMessages',
-      'ngNotify',
-      'ngLodash',
-      'google-signin',
-      'ui.mask'
+      'app.service'
     ]);
 
 })();

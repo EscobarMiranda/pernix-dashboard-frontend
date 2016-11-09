@@ -6,7 +6,7 @@
     .service('CompanyService', CompanyService);
 
   /* @ngInject */
-  function CompanyService($http, RESOURCE) {
+  function CompanyService(UserService, $http, RESOURCE, $base64) {
 
     this.getCompanies = getCompanies;
     this.getCompany = getCompany;
@@ -19,7 +19,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'company',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         }
       };
 
@@ -31,7 +32,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'company/' + company.id,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         }
       };
 
@@ -43,7 +45,8 @@
         method: 'POST',
         url:  RESOURCE.API_URL + 'company',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: company
       };
@@ -56,7 +59,8 @@
         method: 'PUT',
         url:  RESOURCE.API_URL + 'company',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: company
       };
@@ -69,7 +73,8 @@
         method: 'PUT',
         url:  RESOURCE.API_URL + 'company/changeState',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: company
       };

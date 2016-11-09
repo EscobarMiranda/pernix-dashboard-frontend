@@ -6,7 +6,7 @@
     .service('AnswerService', AnswerService);
 
   /* @ngInject */
-  function AnswerService($http, RESOURCE) {
+  function AnswerService(UserService, $http, RESOURCE, $base64) {
     this.getMetric = getMetric;
     this.createAnswerList = createAnswerList;
     this.buildAnswers = buildAnswers;
@@ -16,7 +16,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'answer/' + path,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         }
       };
 
@@ -28,7 +29,8 @@
         method: 'POST',
         url:  RESOURCE.API_URL + 'answer',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: answer
       };

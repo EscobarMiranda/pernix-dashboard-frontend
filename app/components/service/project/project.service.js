@@ -6,7 +6,7 @@
     .service('ProjectService', ProjectService);
 
   /* @ngInject */
-  function ProjectService($http, RESOURCE) {
+  function ProjectService(UserService, $http, RESOURCE, $base64) {
 
     this.getProjects = getProjects;
     this.getProjectsByUser = getProjectsByUser;
@@ -20,7 +20,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'project',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         }
       };
 
@@ -32,7 +33,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'project/byUser/' + user.id,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         }
       };
 
@@ -44,7 +46,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'project/' + project.id,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         }
       };
 
@@ -56,7 +59,8 @@
         method: 'POST',
         url:  RESOURCE.API_URL + 'project',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: project
       };
@@ -69,7 +73,8 @@
         method: 'PUT',
         url:  RESOURCE.API_URL + 'project',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: project
       };
@@ -82,7 +87,8 @@
         method: 'PUT',
         url:  RESOURCE.API_URL + 'project/changeState',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': UserService.getAuthorization()
         },
         data: project
       };

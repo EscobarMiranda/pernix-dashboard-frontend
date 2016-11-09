@@ -6,7 +6,7 @@
     .service('UserService', UserService);
 
   /* @ngInject */
-  function UserService($http, RESOURCE, $window, $state, ngNotify) {
+  function UserService($http, RESOURCE, $window, $state, ngNotify, $base64) {
     this.getUserTypes = getUserTypes;
     this.getUserTypeByName = getUserTypeByName;
     this.getUsers = getUsers;
@@ -21,13 +21,15 @@
     this.getCurrentAdminId = getCurrentAdminId;
     this.getPermissions = getPermissions;
     this.verifyCredentials = verifyCredentials;
+    this.getAuthorization = getAuthorization;
 
     function getUserTypes() {
       var request = {
         method: 'GET',
         url: RESOURCE.API_URL + 'userType',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': getAuthorization()
         }
       };
 
@@ -39,7 +41,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'userType/byName/' + name,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': getAuthorization()
         }
       };
 
@@ -51,7 +54,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'user',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': getAuthorization()
         }
       };
 
@@ -63,7 +67,8 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'user/' + user.id,
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': getAuthorization()
         }
       };
 
@@ -75,7 +80,8 @@
         method: 'POST',
         url:  RESOURCE.API_URL + 'user',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': getAuthorization()
         },
         data: user
       };
@@ -88,7 +94,8 @@
         method: 'PUT',
         url:  RESOURCE.API_URL + 'user',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': getAuthorization()
         },
         data: user
       };
@@ -101,7 +108,8 @@
         method: 'PUT',
         url:  RESOURCE.API_URL + 'user/changeState',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': getAuthorization()
         },
         data: user
       };
@@ -138,6 +146,11 @@
         ngNotify.set('session required', 'error');
         $state.go('login');
       }
+    }
+
+    function getAuthorization() {
+      var user = getCurrentUser();
+      return 'Basic ' + $base64.encode(user.email + ':' + user.password);
     }
 
   }
