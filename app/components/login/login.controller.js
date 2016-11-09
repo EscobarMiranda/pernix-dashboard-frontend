@@ -19,6 +19,7 @@
           vm.loginObject.name = vm.user.ofa;
           vm.loginObject.lastname = vm.user.wea;
           vm.loginObject.email = vm.user.U3;
+          vm.loginObject.password = vm.user.Eea;
           LoginService.getUser(vm.loginObject).then(function(userData) {
             vm.user = userData.data;
             UserService.setCurrentUser(vm.user);
