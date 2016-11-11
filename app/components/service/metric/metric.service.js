@@ -19,8 +19,7 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'metric/bySurvey/' + survey.id,
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': UserService.getAuthorization()
+          'Content-Type': 'application/json'
         }
       };
 

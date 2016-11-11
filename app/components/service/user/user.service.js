@@ -67,8 +67,7 @@
         method: 'GET',
         url: RESOURCE.API_URL + 'user/' + user.id,
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': getAuthorization()
+          'Content-Type': 'application/json'
         }
       };
 
