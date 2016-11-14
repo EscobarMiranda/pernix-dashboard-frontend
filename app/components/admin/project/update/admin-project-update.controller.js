@@ -9,6 +9,7 @@
   function UpdateProjectController(UserService,
                                    OnTrackService,
                                    ProjectService,
+                                   ObjectService,
                                    project,
                                    $uibModalInstance,
                                    $filter,
@@ -18,8 +19,10 @@
     vm.onTrackList = [];
     vm.project = project;
     vm.closeModal = closeModal;
-    vm.onTrack = {};
-    vm.user = UserService.getCurrentUser();
+    vm.onTrack = vm.project.onTrack;
+    vm.users = [];
+    vm.visible = UserService.getPermissions();
+    vm.assignedUser = vm.project.user;
     vm.updateProject = updateProject;
     vm.toggleStartDatePopup = toggleStartDatePopup;
     vm.toggleEndDatePopup = toggleEndDatePopup;
@@ -39,6 +42,7 @@
     };
 
     getOnTrack();
+    getUsers();
 
     function closeModal() {
       $uibModalInstance.dismiss('cancel');
@@ -58,7 +62,10 @@
       vm.project.startDate = new Date($filter(RESOURCE.filterName)(vm.project.startDate, RESOURCE.formatDate));
       vm.project.endDate = new Date($filter(RESOURCE.filterName)(vm.project.endDate, RESOURCE.formatDate));
       vm.project.lastDemo = new Date($filter(RESOURCE.filterName)(vm.project.lastDemo, RESOURCE.formatDate));
-      vm.project.onTrack = JSON.parse(vm.onTrack);
+      vm.project.onTrack = ObjectService.parseObject(vm.project.onTrack);
+      vm.onTrack = vm.project.onTrack;
+      vm.project.user = ObjectService.parseObject(vm.project.user);
+      vm.assignedUser = vm.project.user;
     }
 
     function updateProject() {
@@ -72,6 +79,16 @@
           ngNotify.set('An error has been occurred, please try again', 'error');
         });
       closeModal();
+    }
+
+    function getUsers() {
+      UserService.getUsers()
+        .then(function(usersData) {
+          vm.users = usersData.data;
+        })
+        .catch(function(error) {
+          ngNotify.set('Error loading users', 'error');
+        });
     }
 
     function toggleStartDatePopup() {

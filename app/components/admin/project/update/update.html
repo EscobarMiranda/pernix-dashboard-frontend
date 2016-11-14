@@ -7,19 +7,19 @@
     <form name="form">
       <div class="modal-body form-horizontal">
         <div class="form-group">
-          <label class="control-label col-sm-4">Name: </label>
+          <label class="control-label col-sm-4">Name *: </label>
           <div class="col-sm-5">
             <input type="text" class="form-control" ng-model="vm.project.name" placeholder="Name" name="name" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-4">Description: </label>
+          <label class="control-label col-sm-4">Description *: </label>
           <div class="col-sm-5">
             <textarea type="text" class="form-control" ng-model="vm.project.description" placeholder="Description" name="description" required></textarea>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-4">Start date: </label>
+          <label class="control-label col-sm-4">Start date *: </label>
           <div class="col-sm-5">
             <input type="text" id="startDate" class="form-control" ng-click="vm.toggleStartDatePopup()"
               ui-mask-use-viewvalue="true"
@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-4">End date: </label>
+          <label class="control-label col-sm-4">End date *: </label>
           <div class="col-sm-5">
             <input type="text" id="endDate" class="form-control" ng-click="vm.toggleEndDatePopup()"
               placeholder="{{vm.project.endDate | date: 'yyyy/MM/dd'}}" uib-datepicker-popup="yyyy/MM/dd"
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-4">Last demo: </label>
+          <label class="control-label col-sm-4">Last demo *: </label>
           <div class="col-sm-5">
             <input type="text" id="lastDemo" class="form-control" ng-click="vm.toggleLastDemoPopup()"
               placeholder="{{vm.project.lastDemo | date: 'yyyy/MM/dd'}}" uib-datepicker-popup="yyyy/MM/dd"
@@ -56,22 +56,30 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-4">Last update: </label>
+          <label class="control-label col-sm-4">Last update *: </label>
           <div class="col-sm-5">
             <textarea type="text" class="form-control" ng-model="vm.project.lastUpdate" placeholder="Last update" name="lastUpdate" required></textarea>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-4">Percentage: </label>
+          <label class="control-label col-sm-4">Percentage *: </label>
           <div class="col-sm-5">
             <input type="number" class="form-control" ng-model="vm.project.percentage" min="0" max="100" placeholder="Percentage" name="percetage" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-4">On track: </label>
+          <label class="control-label col-sm-4">On track *: </label>
           <div class="col-sm-5">
-            <select class="selectpicker form-control" ng-model="vm.onTrack">
-              <option ng-repeat="onTrack in vm.onTrackList" value="{{onTrack}}">{{onTrack.name}}</option>
+            <select class="selectpicker form-control" ng-model="vm.project.onTrack">
+              <option ng-repeat="onTrack in vm.onTrackList" value="{{onTrack}}" selected="onTrack == vm.onTrack">{{onTrack.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" ng-show="{{vm.visible}}">
+          <label class="control-label col-sm-4">Assigned user *: </label>
+          <div class="col-sm-5">
+            <select class="selectpicker form-control" ng-model="vm.project.user">
+              <option ng-repeat="assignedUser in vm.users" value="{{assignedUser}}" data-ng-init="vm.assignedUser = vm.project.user" selected="vm.assignedUser == assignedUser">{{assignedUser.name}} {{assignedUser.lastname}}</option>
             </select>
           </div>
         </div>

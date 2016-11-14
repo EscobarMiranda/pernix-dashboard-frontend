@@ -6,7 +6,7 @@
     .config(configuration);
 
   /* @ngInject */
-  function configuration(RESOURCE, $locationProvider, GoogleSigninProvider) {
+  function configuration(RESOURCE, GoogleSigninProvider) {
     GoogleSigninProvider.init({
       client_id: RESOURCE.GOOGLE_CLIENT_ID
     });

@@ -9,6 +9,7 @@
   function UpdateManagerController(
       ManagerService,
       CompanyService,
+      ObjectService,
       $uibModalInstance,
       manager,
       ngNotify) {
@@ -36,7 +37,7 @@
     }
 
     function updateManager() {
-      vm.manager.company = JSON.parse(vm.company);
+      vm.manager.company = ObjectService.parseObject(vm.manager.company);
       ManagerService.updateManager(vm.manager)
         .then(function(data) {
           vm.manager = {};

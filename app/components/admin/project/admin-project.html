@@ -16,6 +16,7 @@
             <th>On track</th>
             <th>Percentage</th>
             <th>Active</th>
+            <th ng-show="{{vm.isAdmin}}">Assigned user</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -30,6 +31,7 @@
             <td>{{project.onTrack.name}}</td>
             <td>{{project.percentage}}%</td>
             <td>{{project.active}}</td>
+            <td ng-show="{{vm.isAdmin}}">{{project.user.name}} {{project.user.lastname}}</td>
             <td>
               <a ng-click="vm.updateProject(project)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
               -
