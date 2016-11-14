@@ -8,11 +8,14 @@
   /* @ngInject */
   function DashboardController(CompanyService, UserService, $scope, ngNotify, $state) {
     var vm = this;
+    vm.visible = UserService.getPermissions();
+    vm.user = UserService.getCurrentUser();
     vm.object = {};
     vm.object.name = 'General';
     vm.companies = [];
     vm.users = [];
     vm.getMetric = getMetric;
+    vm.reload = reload;
 
     activate();
     getCompanies();
@@ -45,6 +48,10 @@
         .catch(function(error) {
           ngNotify.set('Error loading users', 'error');
         });
+    }
+
+    function reload() {
+      $state.reload();
     }
 
   }

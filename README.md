@@ -42,5 +42,18 @@ Then run the following command to inject those files into the index `gulp build-
 ## Testing
 Running `grunt test` will run the unit tests with karma.
 
+## Publish on heroku  
+* `git checkout -b new-branch-name`
+* `gulp clean`
+* `gulp build-production`
+* `git add .`
+* `git commit -m "New Release <Date>"`
+* `git push heroku new-branch-name:master -f`
+
 For more information please refer to:
 http://johnlivingston.io/blog/yeoman-heroku
+
+----------
+Crafted by:
+[![Pernix-Solutions.com](http://pernix.cr/static/images/pernix-logo.svg)
+](http://Pernix-Solutions.com)

@@ -27,8 +27,8 @@
         <div class="form-group">
           <label class="control-label col-sm-4">Company: </label>
           <div class="col-sm-5">
-            <select class="selectpicker form-control" ng-model="vm.company" required>
-              <option ng-repeat="company in vm.companies" value="{{company}}">{{company.name}}</option>
+            <select class="selectpicker form-control" ng-model="vm.manager.company" required>
+              <option ng-repeat="company in vm.companies" value="{{company}}" selected="vm.company == company">{{company.name}}</option>
             </select>
           </div>
         </div>
