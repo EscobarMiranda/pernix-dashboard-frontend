@@ -1,0 +1,46 @@
+<div>
+  <admin-menu></admin-menu>
+  <h2>Projects <small>Administration</small></h2>
+  <button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createProject()">Create project</button>
+  <div class="jumbotron">
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Last demo</th>
+            <th>Last update</th>
+            <th>On track</th>
+            <th>Percentage</th>
+            <th>Active</th>
+            <th ng-show="{{vm.isAdmin}}">Assigned user</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="project in vm.projects">
+            <td>{{project.name}}</td>
+            <td>{{project.description}}</td>
+            <td>{{project.startDate | date}}</td>
+            <td>{{project.endDate | date}}</td>
+            <td>{{project.lastDemo | date}}</td>
+            <td>{{project.lastUpdate}}</td>
+            <td>{{project.onTrack.name}}</td>
+            <td>{{project.percentage}}%</td>
+            <td>{{project.active}}</td>
+            <td ng-show="{{vm.isAdmin}}">{{project.user.name}} {{project.user.lastname}}</td>
+            <td>
+              <a ng-click="vm.updateProject(project)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-hide="!project.active" ng-click="vm.deleteProject(project)"><span class='glyphicon glyphicon-remove'></span> Deactivate</a>
+              <a ng-hide="project.active" ng-click="vm.deleteProject(project)"><span class='glyphicon glyphicon-ok'></span> Activate</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

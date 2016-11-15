@@ -1,0 +1,35 @@
+<div>
+  <admin-menu></admin-menu>
+  <h2>Users <small>Administration</small></h2><button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createUser()">Create user</button>
+  <div class="jumbotron">
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>User type</th>
+            <th>Email</th>
+            <th>Manager</th>
+            <th>Active</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in vm.users">
+            <td>{{user.name}} {{user.lastname}}</td>
+            <td>{{user.userType.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.manager.name}} {{user.manager.lastname}}</td>
+            <td>{{user.active}}</td>
+            <td>
+              <a ng-click="vm.updateUser(user)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-show="user.active" ng-click="vm.deleteUser(user)"><span class='glyphicon glyphicon-remove'></span> Deactivate</a>
+              <a ng-hide="user.active" ng-click="vm.deleteUser(user)"><span class='glyphicon glyphicon-ok'></span> Activate</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

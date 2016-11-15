@@ -1,0 +1,42 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="vm.close()">&times;</button>
+    <h4 class="modal-title">Create manager</h4>
+  </div>
+  <div class="modal-body">
+    <form name="form">
+      <div class="modal-body form-horizontal">
+        <div class="form-group">
+          <label class="control-label col-sm-4">Name: </label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" ng-model="vm.manager.name" placeholder="Name" name="name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4">Lastname: </label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" ng-model="vm.manager.lastname" placeholder="Lastname" name="lastname" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4">Email: </label>
+          <div class="col-sm-5">
+            <input type="email" class="form-control" ng-model="vm.manager.email" placeholder="Email" name="email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4">Company: </label>
+          <div class="col-sm-5">
+            <select class="selectpicker form-control" ng-model="vm.company">
+              <option ng-repeat="company in vm.companies" value="{{company}}">{{company.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-disabled="form.$error.required" ng-click="vm.createManager()">Create manager</button>
+        <button type="button" class="btn btn-default" ng-click="vm.close()">Close</button>
+      </div>
+    </form>
+  </div>  
+</div>

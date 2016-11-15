@@ -1,0 +1,4 @@
+<c3chart ng-repeat="answer in vm.answers" bindto-id="gauge-plot{{answer.id}}-chart" class="col col-md-4">
+  <chart-column column-id="{{answer.name}}" column-values="{{answer.value}}" column-color="{{answer.color}}" column-type="gauge"/>
+  <chart-gauge min="0" max="100" units="{{answer.name}}" width="39"/>
+</c3chart>

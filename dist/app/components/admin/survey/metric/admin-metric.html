@@ -1,0 +1,33 @@
+<div>
+  <admin-menu></admin-menu>
+  <h2>{{vm.survey.name}} <small>Administration</small></h2>
+  <button class="btn btn-blue btn-outline btn-rounded" ui-sref="home.survey">Back to surveys</button>
+  <button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createMetric()">Create metric</button>
+  <div class="jumbotron">
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Active</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="metric in vm.metrics">
+            <td>{{metric.name}}</td>
+            <td>{{metric.description}}</td>
+            <td>{{metric.active}}</td>
+            <td>
+              <a ng-click="vm.updateMetric(metric)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-show="metric.active" ng-click="vm.deleteMetric(metric)"><span class='glyphicon glyphicon-remove'></span> Deactivate</a>
+              <a ng-hide="metric.active" ng-click="vm.deleteMetric(metric)"><span class='glyphicon glyphicon-ok'></span> Activate</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

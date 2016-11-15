@@ -1,0 +1,34 @@
+<div>
+  <div class="pull-right">
+    <a class="btn btn-blue btn-outline btn-rounded" type="button" ng-click="vm.reload()">
+      General
+    </a>
+  </div>
+  <div class="dropdown pull-right" ng-show="{{vm.visible}}">
+    <button class="btn btn-blue btn-outline btn-rounded dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Companies
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li ng-repeat="company in vm.companies"><a ng-click="vm.getMetric('company/',company)">{{company.name}}</a></li>
+    </ul>
+  </div>
+  <div class="dropdown pull-right">
+    <button class="btn btn-blue btn-outline btn-rounded dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Users
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li ng-show="{{vm.visible}}" ng-repeat="user in vm.users"><a ng-click="vm.getMetric('user/',user)">{{user.name}} {{user.lastname}}</a></li>
+      <li ng-show="{{!vm.visible}}"><a ng-click="vm.getMetric('user/',vm.user)">{{vm.user.name}} {{vm.user.lastname}}</a></li>
+    </ul>
+  </div>
+  <h2>{{vm.object.name}} {{vm.object.lastname}} <small>Dashboard</small></h2>
+  <div class="jumbotron">
+    <div class="container">
+      <answer></answer>
+      <br><br>
+      <project></project>
+    </div>
+  </div>
+</div>

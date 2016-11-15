@@ -1,0 +1,33 @@
+<div class="form-page container-fluid">
+  <div class="row">
+    <form>
+      <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+        <img src="app/images/pernix-logo.png" class="logo-form" />
+        <br>
+        <h2 class="white">{{vm.survey.name}}<br>{{vm.user.name}} {{vm.user.lastname}}</h2>
+        <br>
+      </div> 
+      <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+        <div class="jumbotron">
+          <div class="container text-center">
+            <p>{{vm.survey.description}}<br>
+              Thanks<br>
+              Carlos Sirias - CEO</p>
+              <hr class="hr">
+              <div ng-repeat="metric in vm.metrics">
+              <h3>{{metric.name}}</h3>
+                <p><small>{{metric.description}}</small></p>
+                <label ng-repeat="scale in vm.scale" for="quest_{{metric.id}}_answer_{{scale}}">
+                  <input type="radio" id="quest_{{metric.id}}_answer_{{scale}}" ng-model="vm.answers[metric.id]" value="{{scale}}" name="quest_{{metric.id}}_answers"> {{scale}}
+                </label>
+                <br><br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+          <button class="btn btn-white btn-outline btn-lg btn-rounded" ng-click="vm.sendAnswers()"><span class="glyphicon glyphicon-send"></span> Send</button>
+        </div>
+      </form>
+    </div>
+  </div>

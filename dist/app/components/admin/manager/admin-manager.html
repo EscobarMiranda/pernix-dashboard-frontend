@@ -1,0 +1,34 @@
+<div>
+  <admin-menu></admin-menu>
+  <h2>Managers <small>Administration</small></h2>
+  <button class="btn btn-blue btn-outline btn-rounded" ng-click="vm.createManager()">Create manager</button>
+  <div class="jumbotron">
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Active</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="manager in vm.managers">
+            <td>{{manager.name}} {{manager.lastname}}</td>
+            <td>{{manager.company.name}}</td>
+            <td>{{manager.email}}</td>
+            <td>{{manager.active}}</td>
+            <td>
+              <a ng-click="vm.updateManager(manager)"><span class='glyphicon glyphicon-pencil'></span> Edit</a>
+              -
+              <a ng-show="manager.active" ng-click="vm.deleteManager(manager)"><span class='glyphicon glyphicon-remove'></span> Deactivate</a>
+              <a ng-hide="manager.active" ng-click="vm.deleteManager(manager)"><span class='glyphicon glyphicon-ok'></span> Activate</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

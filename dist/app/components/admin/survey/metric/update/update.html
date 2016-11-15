@@ -1,0 +1,26 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="vm.close()">&times;</button>
+    <h4 class="modal-title">Edit metric</h4>
+  </div>
+  <div class="modal-body">
+    <div class="modal-body form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4">Name: </label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" ng-model="vm.metric.name" placeholder="Name" name="name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4">Description: </label>
+        <div class="col-sm-5">
+          <textarea type="text" class="form-control" ng-model="vm.metric.description" placeholder="Description" name="description" required></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" ng-disabled="form.$error.required" ng-click="vm.updateMetric()">Edit metric</button>
+      <button type="button" class="btn btn-default" ng-click="vm.close()">Close</button>
+    </div>
+  </div>  
+</div>
