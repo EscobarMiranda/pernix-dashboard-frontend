@@ -17,7 +17,8 @@
     "ng-lodash": "^0.5.0",
     "ng-google-signin": "^0.1.0",
     "angular-ui-mask": "^1.8.7",
-    "angular-base64": "^2.0.5"
+    "angular-base64": "^2.0.5",
+    "ngreactions": "ng-reactions#*"
   },
   "devDependencies": {
     "angular-mocks": "1.5.7"

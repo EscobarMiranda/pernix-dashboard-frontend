@@ -17,10 +17,12 @@
               <div ng-repeat="metric in vm.metrics">
               <h3>{{metric.name}}</h3>
                 <p><small>{{metric.description}}</small></p>
-                <label ng-repeat="scale in vm.scale" for="quest_{{metric.id}}_answer_{{scale}}">
-                  <input type="radio" id="quest_{{metric.id}}_answer_{{scale}}" ng-model="vm.answers[metric.id]" value="{{scale}}" name="quest_{{metric.id}}_answers"> {{scale}}
-                </label>
-                <br><br>
+                <ng-reactions
+                  action="vm.ratingsCallback(metric.id,selected)"
+                  data='vm.reaction'
+                  type="icon"
+                  itemset="vm.iconset">
+                </ng-reactions>
               </div>
             </div>
           </div>
