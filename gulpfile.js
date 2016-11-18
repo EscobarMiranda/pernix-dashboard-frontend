@@ -69,7 +69,8 @@ gulp.task('move-bower-components', function() {
     'bower_components/ng-notify/src/scripts/ng-notify.js',
     'bower_components/ng-lodash/build/ng-lodash.min.js',
     'bower_components/ng-google-signin/dist/ng-google-signin.js',
-    'bower_components/angular-base64/angular-base64.min.js'])
+    'bower_components/angular-base64/angular-base64.min.js',
+    'bower_components/ngreactions/ngreactions.js'])
     .pipe(gulp.dest('dist/vendor/js'));
 
   gulp.src('./bower_components/bootstrap/fonts/*.*')
@@ -78,7 +79,8 @@ gulp.task('move-bower-components', function() {
   return gulp.src(['./bower_components/bootstrap/dist/css/bootstrap.min.css',
     './bower_components/bootstrap/dist/css/bootstrap-theme.min.css',
     'bower_components/c3/c3.min.css',
-    'bower_components/ng-notify/src/styles/ng-notify.css'])
+    'bower_components/ng-notify/src/styles/ng-notify.css',
+    'bower_components/ngreactions/css/font-reaction/font-reactions.css'])
     .pipe(gulp.dest('dist/vendor/css'));
 });
 
@@ -128,7 +130,9 @@ gulp.task('build-index', function() {
     'bower_components/ng-notify/src/scripts/ng-notify.js',
     'bower_components/ng-lodash/build/ng-lodash.min.js',
     'bower_components/ng-google-signin/dist/ng-google-signin.js',
-    'bower_components/angular-base64/angular-base64.min.js'], {read: false});
+    'bower_components/angular-base64/angular-base64.min.js',
+    'bower_components/ngreactions/ngreactions.js',
+    'bower_components/ngreactions/css/font-reaction/font-reactions.css'], {read: false});
 
   return target.pipe(inject(sources, {relative: true}))
     .pipe(gulp.dest(''));

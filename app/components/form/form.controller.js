@@ -19,14 +19,26 @@
     vm.answers = {};
     vm.user = {};
     vm.survey = {};
+    vm.iconset = [];
+    vm.reaction = {};
     vm.survey.id = $stateParams.surveyId;
     vm.user.id = $stateParams.userId;
     vm.sendAnswers = sendAnswers;
+    vm.ratingsCallback = ratingsCallback;
     vm.scale = RESOURCE.SCALE;
 
     getUser();
     getMetricsBySurvey();
     getSurvey();
+    prepareReactions();
+
+    function prepareReactions() {
+      vm.iconset = RESOURCE.ICONSET;
+      vm.reaction = {
+        minRating: 1,
+        readOnly: false
+      };
+    }
 
     function getSurvey() {
       SurveyService.getSurvey(vm.survey)
@@ -59,9 +71,17 @@
     }
 
     function sendAnswers() {
-      AnswerService.createAnswerList(
-        AnswerService.buildAnswers(vm.user.id, vm.answers));
-      $state.go('thanks');
+      if (vm.metrics.length === Object.keys(vm.answers).length) {
+        AnswerService.createAnswerList(
+          AnswerService.buildAnswers(vm.user.id, vm.answers));
+        $state.go('thanks');
+      } else {
+        ngNotify.set('Error, please answer all the questions', 'error');
+      }
+    }
+
+    function ratingsCallback(metricId,selected) {
+      vm.answers[metricId] = selected;
     }
 
   }

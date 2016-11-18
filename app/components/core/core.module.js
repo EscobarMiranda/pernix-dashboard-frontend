@@ -10,7 +10,8 @@
       'ngNotify',
       'ngLodash',
       'google-signin',
-      'ui.mask'
+      'ui.mask',
+      'ng-reactions'
     ]);
 
 })();
